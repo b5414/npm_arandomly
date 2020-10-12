@@ -1,0 +1,26 @@
+{
+	"name": "arandomly",
+	"version": "0.0.1",
+	"description": "Random number generator module",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/b5414/npm_arandomly.git"
+	},
+	"keywords": [
+		"random",
+		"rand",
+		"rng",
+		"number",
+		"float",
+		"generator",
+		"randomly",
+		"random-ly"
+	],
+	"author": "b5414",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/b5414/npm_arandomly/issues"
+	},
+	"homepage": "https://github.com/b5414/npm_arandomly#readme"
+}

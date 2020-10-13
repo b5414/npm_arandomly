@@ -15,6 +15,7 @@
 //
 
 const {dilute, pad, minMaxCheck} = require('./source/globals.js');
+const {randFloat} = require('./source/numbers.js');
 
 const oneOfArray = (arr)=>arr[rand(0, arr.length - 1)];
 
@@ -55,4 +56,28 @@ const roll = (detailed = false)=>{
 	return result;
 };
 
-module.exports = {pad, dilute, randBool, rand, random, roll, oneOfArray};
+const randomArrayGen = (min, max, obj = {})=>{
+	// float
+	// otricatelnie
+	// bigint
+
+	console.log(obj);
+	if(min > max)[min, max] = [max, min];
+	return rand(min, max) / 100;
+};
+
+// module.exports = {pad, dilute, randBool, rand, random, roll, oneOfArray};
+
+
+
+let tf = true;
+for(let k = 0; tf; k++){
+	let r = randFloat();
+	console.log(r);
+	if(r > 0.99){
+		tf = false;
+	}
+}
+
+
+

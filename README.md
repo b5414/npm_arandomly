@@ -1,5 +1,7 @@
 # a RandomLy
 
+> This package are: random value(date \ number \ bool) generator
+
 ## Install
 
 ```c

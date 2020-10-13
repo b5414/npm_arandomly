@@ -1,23 +1,49 @@
-const pad = (n, len = 3)=>{
-	if(`${n}`.length < len){
-		n = `0${n}`;
-		return pad(n, len);
-	}
-	return n;
-};
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-const dilute = (me, dule = ' ')=>`${me}`.split('').join(`${dule}`);
-
-const randBool = ()=>!rand(0, 1);
-
-const rand = (min, max)=>{
-	if(min > max)[min, max] = [max, min];
-	return Math.floor(min + Math.random() * (max + 1 - min));
-};
-
-const random = (min = 0, max = 100)=>rand(min, max) / 100;
+const {dilute, pad, minMaxCheck} = require('./source/globals.js');
 
 const oneOfArray = (arr)=>arr[rand(0, arr.length - 1)];
+
+const randomDateYear = (year = [])=>{
+	if(!Array.isArray(year))year = [year];
+	year.forEach((e, i)=>(year[i] = parseInt(e)));
+	year.sort();
+
+	let date = new Date();
+	let max = 0;
+
+	if(date.getFullYear() > year[year.length - 1]){
+	}else{
+		max = new Date().getTime();
+	}
+	// is today > biggest year
+
+	let unix = 0;
+	let until = true;
+
+	while(until){
+		unix = rand(0, max);
+		date = new Date(unix);
+
+		// date.getFullYear() !== year
+	}
+
+	return date;
+};
 
 const roll = (detailed = false)=>{
 	const result = rand(1, 100);

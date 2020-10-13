@@ -1,7 +1,7 @@
 {
 	"name": "arandomly",
-	"version": "0.0.1",
-	"description": "Random number generator module",
+	"version": "0.0.2",
+	"description": "Random value generator module",
 	"main": "index.js",
 	"repository": {
 		"type": "git",
@@ -17,7 +17,7 @@
 		"randomly",
 		"random-ly"
 	],
-	"author": "b5414",
+	"author": "b5414 <b5414b@gmail.com>",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/b5414/npm_arandomly/issues"

@@ -1,4 +1,4 @@
-# A_RandomLy
+# a RandomLy
 
 ## Install
 
@@ -17,6 +17,17 @@ const rand = require('arandomly');
 _then_
 
 ```javascript
-const number = rand.random();
-console.log(number);
+let response;
+
+response = rand.random();
+console.log(response);
+
+response = rand.rand(1, 8);
+console.log(response);
+
+response = rand.roll(true);
+console.log(response);
+
+response = rand.bool();
+console.log(response);
 ```

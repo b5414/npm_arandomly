@@ -85,47 +85,63 @@ const randomDateYears = (years = [2020])=>{
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
+/**
+ * @description Random element from object
+ *
+ * @param {object} obj - Not empty object
+ * @returns {value} Element from object
+ */
+const oneOfObject = (obj)=>{
+	// todo
+	// get random key with true from object
+	console.log(obj);
+};
+
+/**
+ * @alias oneOfObject
+ */
+const randomObjElement = oneOfObject;
+
+//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+
+/**
+ * @description Random array generator
+ *
+ * @param {number} [length] Length of (returned) array
+ * @param {{number, float, string, bool}} [object] Object with MAXs of random number\float\string_length
+ * @returns {array} Random array
+ */
 const randomArrayGen = (leng, obj = {})=>{
 	if(!leng || typeof leng !== 'number' || typeof obj !== 'object' || Array.isArray(obj))return false;
 
-	if(!obj.number)obj.number = false;
-	if(!obj.float)obj.float = false;
-	if(!obj.string)obj.string = false;
-	if(!obj.bool)obj.bool = false;
+	const arr = ['number', 'float', 'string', 'bool'];
+	obj = Object.assign({number: false, float: false, string: false, bool: false}, obj);
 
-	randomString();
+	const getA = ()=>{
+		// todo need first: oneOfObject();
+		// randomString();
+		console.log('aaaaaaaa');
+	};
 
-	// float
+	let array = new Array(leng).fill(!0);
 
-	// console.log(obj);
-	// if(min > max)[min, max] = [max, min];
-	// return rand(min, max) / 100;
+	array.forEach((e, i)=>{
+		const a = getA();
+		array[i] = a;
+	});
+
+	return array;
 };
 
-// console.log(randomArrayGen(2, {}));
-// console.log(randomArrayGen(3, []));
-// console.log(randomArrayGen(0, []));
+console.log(randomArrayGen(2, {number: 10}));
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
 module.exports = {
-	/* index */
-	roll,
-	oneOfArray,
-	randomElement,
-	randomString,
-	randomDate,
-	randomDateYear,
-	randomDateYears,
-	randomArrayGen,
-
-	/* globals */
-	padLeft,
-	dilute,
-	minMax,
-
 	/* numbers */
 	bool,
 	randBool,
@@ -134,4 +150,23 @@ module.exports = {
 	random,
 	randFloat,
 	randBigFloat,
+
+	/* globals */
+	padLeft,
+	dilute,
+	minMax,
+
+	/* index */
+	roll,
+
+	oneOfArray,
+	randomElement,
+	oneOfObject,
+	randomObjElement,
+
+	randomString,
+	randomDate,
+	randomDateYear,
+	randomDateYears,
+	randomArrayGen,
 };

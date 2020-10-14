@@ -48,48 +48,42 @@ const randomString = (leng = 4, symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijk
 };
 
 /**
- * @description Random date from 1970 to 2038 (Yes, unix)
+ * @description Random date gen from 1970 to 2038 (Yes, unix)
  *
  * @param {number} [min=0] - Minimum unix secs (number)
  * @param {number} [max=2147483648] - Maximum unix secs (number)
  * @returns {date} Random Date
  */
-const randomDate = (min = 0, max = 2147483648)=>new Date(rand(min, max)*1000);
+const randomDate = (min = 0, max = 2147481337)=>new Date(rand(min, max) * 1000);
+
+/**
+ * @description Random date generator
+ *
+ * @param {value | array} [years] - The year or [years] (be parsed_Int)
+ * @returns {date} Random Date with specified year
+ */
+const randomDateYear = (year = [2020])=>{
+	if(!Array.isArray(year))year = [year];
+	year.forEach((e, i)=>(year[i] = parseInt(e)));
+	year = oneOfArray(year);
+	return new Date(randomDate().setFullYear(year));
+};
+
+/**
+ * @description Random dateS generator
+ *
+ * @param {[number]} [years] - The years you need
+ * @returns {array} Random DateS with all specified yearS
+ */
+const randomDateYears = (years = [2020])=>{
+	if(!Array.isArray(years))years = [years];
+	years.forEach((e, i)=>(years[i] = new Date(randomDate().setFullYear(parseInt(e)))));
+	return years;
+};
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-
-const randomDateYear = (year = [])=>{
-	if(!Array.isArray(year))year = [year];
-	year.forEach((e, i)=>(year[i] = parseInt(e)));
-	year.sort();
-
-	let date = new Date();
-	let max = 0;
-
-	if(date.getFullYear() > year[year.length - 1]){
-	}else{
-		max = new Date().getTime();
-	}
-	// is today > biggest year
-
-	let unix = 0;
-	let until = true;
-
-	while(until){
-		unix = rand(0, max);
-		date = new Date(unix);
-
-		// date.getFullYear() !== year
-	}
-
-	return date;
-};
-
-console.log(randomDate());
-// console.log(randomDate());
-// console.log(randomDateYear(2017));
 
 const randomArrayGen = (leng, obj = {})=>{
 	if(!leng || typeof leng !== 'number' || typeof obj !== 'object' || Array.isArray(obj))return false;
@@ -124,6 +118,7 @@ module.exports = {
 	randomString,
 	randomDate,
 	randomDateYear,
+	randomDateYears,
 	randomArrayGen,
 
 	/* globals */

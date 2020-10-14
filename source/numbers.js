@@ -1,4 +1,4 @@
-const {minMaxCheck} = require('./globals.js');
+const {minMax} = require('./globals.js');
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,7 +40,7 @@ const bool = (trueChance = 50)=>{
  * @return {number} - Number between
  */
 const rand = (min = 0, max = 100)=>{
-	[min, max] = minMaxCheck(min, max);
+	[min, max] = minMax(min, max);
 	return Math.floor(min + Math.random() * (max + 1 - min));
 };
 

@@ -1,6 +1,8 @@
 # a RandomLy
 
-> This package are: random value(date \ number \ bool) generator
+> This package are: random value(date \ number \ bool) generator, and: random value picker
+
+> ~IN DEVELOPING~
 
 ## Install
 
@@ -87,7 +89,7 @@ Will return `true` or `false`, with the specified **chance**% it will be `true`
 Syntax
 
 ```js
-rand.bool([chance%]);
+rand.bool([chance = 50]);
 ```
 
 | params   | description         | type     | value   | default value | optional |
@@ -125,7 +127,7 @@ Will return `integer`, between **Min** and **Max** (both _inclusive_)
 Syntax
 
 ```js
-rand.randInt([min [, max]]);
+rand.randInt([min = 50[, max = 100]]);
 ```
 
 | params | description | type     | value    | default value | optional |
@@ -160,7 +162,7 @@ Will return `float`, between **Min** and **Max** (both _inclusive_)
 Syntax
 
 ```js
-rand.randFloat([min [, max]]);
+rand.randFloat([min = 0[, max = 100]]);
 ```
 
 | params | description | type     | value    | default value | optional |
@@ -196,7 +198,7 @@ Will return `float`, between **Min** and **Max** (both _inclusive_)
 Syntax
 
 ```js
-rand.randBigFloat([min [, max[, decimal]]]);
+rand.randBigFloat([min = 0[, max = 100[, decimal = 3]]]);
 ```
 
 | params    | description           | type     | value    | default value | optional |
@@ -235,7 +237,7 @@ Will return `number`, between **1** and **100** (both _inclusive_)
 Syntax
 
 ```js
-rand.roll([(detailed = false)]);
+rand.roll([detailed = false]);
 ```
 
 | params     | description   | type   | value        | default value | optional |
@@ -308,10 +310,10 @@ Syntax
 rand.randomString([leng = 4 [, symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz']]);
 ```
 
-| params    | description  | type     | value    | default value | optional |
-| --------- | ------------ | -------- | -------- | ------------- | -------- |
-| `leng`    | Length       | `number` | 0 - idk  | 4             | +        |
-| `symbols` | Letters pool | `string` | 0 - 999+ | A-z alphabet  | +        |
+| params    | description  | type     | value     | default value | optional |
+| --------- | ------------ | -------- | --------- | ------------- | -------- |
+| `leng`    | Length       | `number` | 0 - `idk` | 4             | +        |
+| `symbols` | Letters pool | `string` | 0 - 999+  | A-z alphabet  | +        |
 
 Examples
 
@@ -353,7 +355,7 @@ rand.randomDate(); // 2003-09-20T12:06:37.000Z
 rand.randomDate(1337000000, 1337000000); // 2012-05-14T12:53:20.000Z
 ```
 
-Yes, it's `unix time`. For the year you need use `.randomDateYear()`, for yearS `.randomDateYears()`
+Yes, it's `unix time`. For the year you need use `.randomDateYear()`, for yearS array use `.randomDateYears()`
 
 ---
 
@@ -388,7 +390,7 @@ rand.randomDateYear(2017); // 2017-03-14T04:19:22.000Z
 rand.randomDateYear(['2007', 2012]); // 2007-09-20T00:26:37.000Z or 2012-08-17T12:27:55.000Z
 ```
 
-For the years you need use `.randomDateYears()`
+For a few years, with random date, use `.randomDateYears()`
 
 ---
 
@@ -403,7 +405,7 @@ For the years you need use `.randomDateYears()`
 
 #### .randomDateYears()
 
-Will return ALL `[dateS]` array, with your specified year(s)
+Will return date(s) `array`, with your specified year(s)
 
 Syntax
 
@@ -423,7 +425,7 @@ rand.randomDateYears(2017); // [2017-05-04T07:44:08.000Z]
 rand.randomDateYears(['2007', 2012]); // [2007-04-30T15:18:55.000Z, 2012-09-01T02:45:56.000Z]
 ```
 
-For the year you need use `.randomDateYear()`
+For only one random year use `.randomDateYear()`
 
 ---
 
@@ -451,18 +453,18 @@ minMax(min, max);
 Examples
 
 ```js
-padLeft(1); // "001"
-padLeft(1, 3, 0); // "001"
-padLeft('1', 4, '0'); // "0001"
+rand.padLeft(1); // "001"
+rand.padLeft(1, 3, 0); // "001"
+rand.padLeft('1', 4, '0'); // "0001"
 
 // ~
-dilute(123); // "1 2 3"
-dilute('321', 0); // "30201"
-dilute(321, '0'); // same above
+rand.dilute(123); // "1 2 3"
+rand.dilute('321', 0); // "30201"
+rand.dilute(321, '0'); // same above
 
 // ~
-minMax(9, 3); // [3, 9]
-minMax(10, 20); // [10, 20]
+rand.minMax(9, 3); // [3, 9]
+rand.minMax(10, 20); // [10, 20]
 ```
 
 ---

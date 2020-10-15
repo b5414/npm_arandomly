@@ -85,6 +85,9 @@ const randomDateYears = (years = [2020])=>{
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
+// todo kosti
+// todo array for roll
+
 /**
  * @description Random element from object
  *

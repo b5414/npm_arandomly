@@ -42,6 +42,8 @@ const rand = require('arandomly');
 
 Will return `true` or `false`
 
+Syntax
+
 ```js
 rand.randBool();
 ```
@@ -57,6 +59,8 @@ rand.randBool(); // True or False, 50% chance
 #### .bool()
 
 Will return `true` or `false`, with the specified **chance**% it will be `true`
+
+Syntax
 
 ```js
 rand.bool([chance]);
@@ -85,6 +89,8 @@ rand.bool(50); // Alias = .randBool()
 
 Will return `integer`, between **Min** and **Max** (both _inclusive_)
 
+Syntax
+
 ```js
 rand.randInt([min [, max]]);
 ```
@@ -108,6 +114,8 @@ rand.randInt(100, 999); // 100 to 999
 #### .random() = .randFloat()
 
 Will return `float`, between **Min** and **Max** (both _inclusive_)
+
+Syntax
 
 ```js
 rand.randFloat([min [, max]]);
@@ -133,6 +141,8 @@ Yes, it's `rand.rand() / 100`, for detailed\expanded please use `.randBigFloat()
 #### .randBigFloat()
 
 Will return `float`, between **Min** and **Max** (both _inclusive_)
+
+Syntax
 
 ```js
 rand.randBigFloat([min [, max[, decimal]]]);
@@ -165,6 +175,8 @@ rand.randBigFloat(100, 300, 0); // 1 to 3
 ---
 
 ### Additional
+
+Syntax
 
 ```js
 padLeft(value [, length = 3[, padValue = 0]]);

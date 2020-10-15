@@ -94,7 +94,7 @@ rand.randInt([min [, max]]);
 | `min`  | Minimum     | `number` | 0 - 999+ | 0             | +        |
 | `max`  | Maximum     | `number` | 0 - 999+ | 100           | +        |
 
-Example
+Examples
 
 ```js
 rand.randInt(); // 0 to 100
@@ -118,7 +118,7 @@ rand.randFloat([min [, max]]);
 | `min`  | Minimum     | `number` | 0 - 999+ | 0             | +        |
 | `max`  | Maximum     | `number` | 0 - 999+ | 100           | +        |
 
-Example
+Examples
 
 ```js
 rand.randFloat(); // 0.00 to 1.00
@@ -144,7 +144,7 @@ rand.randBigFloat([min [, max[, decimal]]]);
 | `max`     | Maximum               | `number` | 0 - 999+ | 100           | +        |
 | `decimal` | Num of decimal places | `number` | 0 - 38   | 3             | +        |
 
-Example
+Examples
 
 ```js
 rand.randBigFloat(); // 0.000 to 1.000
@@ -167,14 +167,28 @@ rand.randBigFloat(100, 300, 0); // 1 to 3
 ### Additional
 
 ```js
-padLeft(1, 3, 0); // "001"
-padLeft('1', 4, '0'); // "0001"
+padLeft(value [, length = 3[, padValue = 0]]);
+
+dilute(value [, glue = " "]);
+
+minMax(min, max);
 ```
 
----
+Examples
 
----
+```js
+padLeft(1); // "001"
+padLeft(1, 3, 0); // "001"
+padLeft('1', 4, '0'); // "0001"
 
----
+// ~
+dilute(123); // "1 2 3"
+dilute('321', 0); // "30201"
+dilute(321, '0'); // same above
+
+// ~
+minMax(9, 3); // [3, 9]
+minMax(10, 20); // [10, 20]
+```
 
 ---

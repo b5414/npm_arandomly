@@ -63,12 +63,12 @@ Will return `true` or `false`, with the specified **chance**% it will be `true`
 Syntax
 
 ```js
-rand.bool([chance]);
+rand.bool([chance%]);
 ```
 
-| params   | description | type     | value   | default value | optional |
-| -------- | ----------- | -------- | ------- | ------------- | -------- |
-| `chance` | True chance | `number` | 0 - 100 | 50            | +        |
+| params   | description         | type     | value   | default value | optional |
+| -------- | ------------------- | -------- | ------- | ------------- | -------- |
+| `chance` | True chance percent | `number` | 0 - 100 | 50 (%)        | +        |
 
 Example
 

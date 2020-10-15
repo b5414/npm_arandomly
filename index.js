@@ -1,5 +1,5 @@
-const {padLeft, dilute, minMax} = require('./source/globals.js');
-const {bool, randBool, rand, randInt, random, randFloat, randBigFloat} = require('./source/numbers.js');
+const {padLeft, dilute, minMax} = require('./source/globals.js').default;
+const {bool, randBool, rand, randInt, random, randFloat, randBigFloat} = require('./source/numbers.js').default;
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

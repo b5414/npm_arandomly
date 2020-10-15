@@ -1,4 +1,4 @@
-const {minMax} = require('./globals.js');
+const {minMax} = require('./globals.js').default;
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -85,4 +85,4 @@ const randBigFloat = (min = 0, max = 100, decimal = 3)=>{
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
-module.exports = {bool, randBool, rand, randInt, random, randFloat, randBigFloat};
+export default {bool, randBool, rand, randInt, random, randFloat, randBigFloat};

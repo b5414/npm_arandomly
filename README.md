@@ -1,8 +1,8 @@
 # a RandomLy
 
-> This package are: random value(date \ number \ bool) generator, and: random value picker
-
 **IN DEVELOPING** 👍
+
+> This package are: random value(date \ number \ bool) generator, and: random value picker
 
 ## Install
 
@@ -24,12 +24,14 @@ const rand = require('arandomly');
 ```javascript
 const rand = require('arandomly');
 console.log(rand.rand(0, 100)); // 0 to 100 (both inclusive)
+
 // or
+
 const {roll} = require('arandomly');
 console.log(roll()); // 13
 ```
 
-## Doc
+## Documentation
 
 -   [Boolean](#boolean)
     -   [.randBool()](#randbool)
@@ -236,6 +238,8 @@ rand.randBigFloat(100, 300, 0); // 1 to 3
 -->
 
 ### Randomizers
+
+> Another randomizers
 
 #### .roll()
 

@@ -1,10 +1,10 @@
 /**
  * @description "A" to "BBA"
  *
- * @param {value} num - Value for padding
- * @param {number} [len=3] - Count of pads
- * @param {value} [pad=0] - Pad = B
- * @returns {string}
+ * @param {string | number} n - Value to padding
+ * @param {number} [len=3] - Number of pads
+ * @param {string | number} [pad=0] - Pad ("B" - value)
+ * @returns {string} Padded string
  */
 const padLeft = (n, len = 3, pad = 0)=>{
 	if(`${n}`.length < len){
@@ -15,13 +15,13 @@ const padLeft = (n, len = 3, pad = 0)=>{
 };
 
 /**
- * @description "AAAA" to "ABABABA" (explode + implode)
+ * @description "AAA" to "ABABA" (explode + implode)
  *
- * @param {*} value - Value instead of A
- * @param {*} [glue=' '] - Implode glue = B
+ * @param {string | number} value - Value to dilute
+ * @param {string | number} [glue=' '] - Implode glue ("B" - value)
  * @returns {string}
  */
-const dilute = (me, glue = ' ')=>`${me}`.split('').join(`${glue}`);
+const dilute = (value, glue = ' ')=>`${value}`.split('').join(`${glue}`);
 
 /**
  * @description A and B to [A, B] or [B, A]

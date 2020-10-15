@@ -12,13 +12,14 @@ npm i arandomly
 yarn add arandomly
 ```
 
-## Connect and Use
+## Connect 
+
 
 ```javascript
 const rand = require('arandomly');
 ```
 
-Use:
+## Use
 
 ```javascript
 const rand = require('arandomly');

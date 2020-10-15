@@ -6,16 +6,26 @@
 
 ## Install
 
-```c
+```javascript
 npm i arandomly
 // or
 yarn add arandomly
 ```
 
-## Use
+## Connect and Use
 
 ```javascript
 const rand = require('arandomly');
+```
+
+Use:
+
+```javascript
+const rand = require('arandomly');
+console.log(rand.rand(0, 100)); // 0 to 100 (both inclusive)
+// or
+const {roll} = require('arandomly');
+console.log(roll()); // 13
 ```
 
 ## Doc

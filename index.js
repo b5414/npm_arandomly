@@ -1,5 +1,5 @@
-const {padLeft, dilute, minMax} = require('./source/globals.js').default;
-const {bool, randBool, rand, randInt, random, randFloat, randBigFloat} = require('./source/numbers.js').default;
+const {padLeft, dilute, minMax} = require('./source/globals.js');
+const {bool, randBool, rand, randInt, random, randFloat, randBigFloat} = require('./source/numbers.js');
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -138,7 +138,7 @@ const randomArrayGen = (leng, obj = {})=>{
 	return array;
 };
 
-console.log(randomArrayGen(2, {number: 10}));
+// console.log(randomArrayGen(2, {number: 10}));
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

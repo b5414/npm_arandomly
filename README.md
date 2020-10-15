@@ -30,6 +30,9 @@ const rand = require('arandomly');
 			- [.random() = .randFloat()](#random--randfloat)
 			- [.randBigFloat()](#randbigfloat)
 		- [Randomizers](#randomizers)
+			- [.roll()](#roll)
+			- [.oneOfArray() = .randomElement()](#oneofarray--randomelement)
+			- [.randomString()](#randomstring)
 		- [Additional](#additional)
 
 ---
@@ -222,6 +225,32 @@ rand.randBigFloat(100, 300, 0); // 1 to 3
 
 ### Randomizers
 
+#### .roll()
+
+Will return `number`, between **1** and **100** (both _inclusive_)
+
+Syntax
+
+```js
+rand.roll([(detailed = false)]);
+```
+
+| params     | description   | type   | value        | default value | optional |
+| ---------- | ------------- | ------ | ------------ | ------------- | -------- |
+| `detailed` | Detailed text | `bool` | true / false | false         | +        |
+
+Examples
+
+```js
+rand.roll(); // 46
+rand.roll(0, 1, 4); /*{
+	text: 'rolls (1-100): 0 4 6',
+	result: 46,
+	pad: '046',
+	padSpace: '0 4 6'
+}*/
+```
+
 ---
 
 <!--
@@ -232,6 +261,77 @@ rand.randBigFloat(100, 300, 0); // 1 to 3
 \
 /
 -->
+
+#### .oneOfArray() = .randomElement()
+
+Will return `value` element, from given **array**
+
+Syntax
+
+```js
+rand.randomElement(array);
+```
+
+| params  | description | type    | value     | default value | optional |
+| ------- | ----------- | ------- | --------- | ------------- | -------- |
+| `array` | Your array  | `array` | Not empty | -             | -        |
+
+Examples
+
+```js
+rand.randomElement([1, 2, 3, 4, 5]); // 1
+rand.randomElement([false, true]); // true
+rand.randomElement(['false', 'true']); // "false"
+```
+
+---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
+
+
+
+#### .randomString()
+
+Will return `float`, between **Min** and **Max** (both _inclusive_)
+
+Syntax
+
+```js
+rand.randomString([min [, max[, decimal]]]);
+```
+
+| params    | description           | type     | value    | default value | optional |
+| --------- | --------------------- | -------- | -------- | ------------- | -------- |
+| `min`     | Minimum               | `number` | 0 - 999+ | 0             | +        |
+| `max`     | Maximum               | `number` | 0 - 999+ | 100           | +        |
+| `decimal` | Num of decimal places | `number` | 0 - 38   | 3             | +        |
+
+Examples
+
+```js
+rand.randomString(); // 0.000 to 1.000
+rand.randomString(0, 1, 4); // 0.0000 to 0.0100
+rand.randomString(0, 1, 9); // 0.000_000_000 to 0.010_000_000
+```
+
+---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
+
 
 ### Additional
 

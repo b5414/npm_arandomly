@@ -39,4 +39,4 @@ const minMax = (min, max)=>{
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
-export default {padLeft, dilute, minMax};
+module.exports = {padLeft, dilute, minMax};

@@ -5,22 +5,21 @@ const {minMax} = require('./globals.js');
 //
 
 /**
- * @description Random bool
+ * @description Random bool value
  *
  * @return {boolean} True or False
  */
 const randBool = ()=>!rand(0, 1);
 
 /**
- * @description Random bool, with chance param
+ * @description Random bool, with true chance percent
  *
- * @param {number} [trueChance=50] - Percentage chance of True
+ * @param {number} [trueChance=50] - Percentage chance to True
  * @return {boolean} True or False
  */
 const bool = (trueChance = 50)=>{
-	if(!trueChance)trueChance = 50;
-	else if(trueChance < 0)trueChance = 0;
-	trueChance = parseInt(trueChance);
+	if(!trueChance && trueChance !== 0)trueChance = 50;
+	else trueChance = parseInt(trueChance);
 
 	if(trueChance <= 0)return false;
 	else if(trueChance >= 100)return true;

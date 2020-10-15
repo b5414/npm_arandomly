@@ -85,61 +85,61 @@ const randomDateYears = (years = [2020])=>{
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
-// todo kosti
-// todo array for roll
+// // todo kosti
+// // todo array for roll
 
-/**
- * @description Random element from object
- *
- * @param {object} obj - Not empty object
- * @returns {value} Element from object
- */
-const oneOfObject = (obj)=>{
-	// todo
-	// get random key with true from object
-	console.log(obj);
-};
+// /**
+//  * @description Random element from object
+//  *
+//  * @param {object} obj - Not empty object
+//  * @returns {value} Element from object
+//  */
+// const oneOfObject = (obj)=>{
+// 	// todo
+// 	// get random key with true from object
+// 	console.log(obj);
+// };
 
-/**
- * @alias oneOfObject
- */
-const randomObjElement = oneOfObject;
+// /**
+//  * @alias oneOfObject
+//  */
+// const randomObjElement = oneOfObject;
 
-//
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//
+// //
+// // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// //
 
-/**
- * @description Random array generator
- *
- * @param {number} [length] Length of (returned) array
- * @param {{number, float, string, bool}} [object] Object with MAXs of random number\float\string_length
- * @returns {array} Random array
- */
-const randomArrayGen = (leng, obj = {})=>{
-	if(!leng || typeof leng !== 'number' || typeof obj !== 'object' || Array.isArray(obj))return false;
+// /**
+//  * @description Random array generator
+//  *
+//  * @param {number} [length] Length of (returned) array
+//  * @param {{number, float, string, bool}} [object] Object with MAXs of random number\float\string_length
+//  * @returns {array} Random array
+//  */
+// const randomArrayGen = (leng, obj = {})=>{
+// 	if(!leng || typeof leng !== 'number' || typeof obj !== 'object' || Array.isArray(obj))return false;
 
-	const arr = ['number', 'float', 'string', 'bool'];
-	obj = Object.assign({number: false, float: false, string: false, bool: false}, obj);
+// 	const arr = ['number', 'float', 'string', 'bool'];
+// 	obj = Object.assign({number: false, float: false, string: false, bool: false}, obj);
 
-	const getA = ()=>{
-		// todo need first: oneOfObject();
-		// randomString();
-		console.log('aaaaaaaa');
-	};
+// 	const getA = ()=>{
+// 		// todo need first: oneOfObject();
+// 		// randomString();
+// 		console.log('aaaaaaaa');
+// 	};
 
-	let array = new Array(leng).fill(!0);
+// 	let array = new Array(leng).fill(!0);
 
-	array.forEach((e, i)=>{
-		const a = getA();
-		array[i] = a;
-	});
+// 	array.forEach((e, i)=>{
+// 		const a = getA();
+// 		array[i] = a;
+// 	});
 
-	return array;
-};
+// 	return array;
+// };
 
-console.log(randomArrayGen(2, {number: 10}));
-
+// console.log(randomArrayGen(2, {number: 10}));
+	
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
@@ -164,12 +164,12 @@ module.exports = {
 
 	oneOfArray,
 	randomElement,
-	oneOfObject,
-	randomObjElement,
+	// oneOfObject,
+	// randomObjElement,
 
 	randomString,
 	randomDate,
 	randomDateYear,
 	randomDateYears,
-	randomArrayGen,
+	// randomArrayGen,
 };

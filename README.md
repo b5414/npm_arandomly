@@ -2,7 +2,7 @@
 
 > This package are: random value(date \ number \ bool) generator, and: random value picker
 
-> ~IN DEVELOPING~
+👍 **IN DEVELOPING** 👍
 
 ## Install
 
@@ -20,25 +20,21 @@ const rand = require('arandomly');
 
 ## Doc
 
-- [a RandomLy](#a-randomly)
-	- [Install](#install)
-	- [Use](#use)
-	- [Doc](#doc)
-		- [Boolean](#boolean)
-			- [.randBool()](#randbool)
-			- [.bool()](#bool)
-		- [Number](#number)
-			- [.randInt() = .rand()](#randint--rand)
-			- [.random() = .randFloat()](#random--randfloat)
-			- [.randBigFloat()](#randbigfloat)
-		- [Randomizers](#randomizers)
-			- [.roll()](#roll)
-			- [.oneOfArray() = .randomElement()](#oneofarray--randomelement)
-			- [.randomString()](#randomstring)
-			- [.randomDate()](#randomdate)
-			- [.randomDateYear()](#randomdateyear)
-			- [.randomDateYears()](#randomdateyears)
-		- [Additional](#additional)
+-   [Boolean](#boolean)
+    -   [.randBool()](#randbool)
+    -   [.bool()](#bool)
+-   [Number](#number)
+    -   [.randInt() = .rand()](#randint--rand)
+    -   [.random() = .randFloat()](#random--randfloat)
+    -   [.randBigFloat()](#randbigfloat)
+-   [Randomizers](#randomizers)
+    -   [.roll()](#roll)
+    -   [.oneOfArray() = .randomElement()](#oneofarray--randomelement)
+    -   [.randomString()](#randomstring)
+    -   [.randomDate()](#randomdate)
+    -   [.randomDateYear()](#randomdateyear)
+    -   [.randomDateYears()](#randomdateyears)
+-   [Additional](#additional)
 
 ---
 
@@ -378,9 +374,9 @@ Syntax
 rand.randomDateYear(year);
 ```
 
-| params | description      | type                      | value     | default value | optional |
-| ------ | ---------------- | ------------------------- | --------- | ------------- | -------- |
-| `year` | Year or \[Years] | `array | number | string` | 0 - 9999+ | -             | -        |
+| params | description      | type                        | value     | default value | optional |
+| ------ | ---------------- | --------------------------- | --------- | ------------- | -------- |
+| `year` | Year or \[Years] | `array \| number \| string` | 0 - 9999+ | -             | -        |
 
 Examples
 
@@ -413,9 +409,9 @@ Syntax
 rand.randomDateYears(year);
 ```
 
-| params | description      | type                      | value     | default value | optional |
-| ------ | ---------------- | ------------------------- | --------- | ------------- | -------- |
-| `year` | Year or \[Years] | `array | number | string` | 0 - 9999+ | -             | -        |
+| params | description      | type                        | value     | default value | optional |
+| ------ | ---------------- | --------------------------- | --------- | ------------- | -------- |
+| `year` | Year or \[Years] | `array \| number \| string` | 0 - 9999+ | -             | -        |
 
 Examples
 

@@ -33,6 +33,9 @@ const rand = require('arandomly');
 			- [.roll()](#roll)
 			- [.oneOfArray() = .randomElement()](#oneofarray--randomelement)
 			- [.randomString()](#randomstring)
+			- [.randomDate()](#randomdate)
+			- [.randomDateYear()](#randomdateyear)
+			- [.randomDateYears()](#randomdateyears)
 		- [Additional](#additional)
 
 ---
@@ -295,30 +298,26 @@ rand.randomElement(['false', 'true']); // "false"
 /
 -->
 
-
-
 #### .randomString()
 
-Will return `float`, between **Min** and **Max** (both _inclusive_)
+Will return `string`, from pool (`symbols`)
 
 Syntax
 
 ```js
-rand.randomString([min [, max[, decimal]]]);
+rand.randomString([leng = 4 [, symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz']]);
 ```
 
-| params    | description           | type     | value    | default value | optional |
-| --------- | --------------------- | -------- | -------- | ------------- | -------- |
-| `min`     | Minimum               | `number` | 0 - 999+ | 0             | +        |
-| `max`     | Maximum               | `number` | 0 - 999+ | 100           | +        |
-| `decimal` | Num of decimal places | `number` | 0 - 38   | 3             | +        |
+| params    | description  | type     | value    | default value | optional |
+| --------- | ------------ | -------- | -------- | ------------- | -------- |
+| `leng`    | Length       | `number` | 0 - idk  | 4             | +        |
+| `symbols` | Letters pool | `string` | 0 - 999+ | A-z alphabet  | +        |
 
 Examples
 
 ```js
-rand.randomString(); // 0.000 to 1.000
-rand.randomString(0, 1, 4); // 0.0000 to 0.0100
-rand.randomString(0, 1, 9); // 0.000_000_000 to 0.010_000_000
+rand.randomString(); // "AbCd"
+rand.randomString(3, 'AB'); // "ABA" or "AAA" or "ABB"
 ```
 
 ---
@@ -332,6 +331,110 @@ rand.randomString(0, 1, 9); // 0.000_000_000 to 0.010_000_000
 /
 -->
 
+#### .randomDate()
+
+Will return `date`, between **1970** and **2038** year
+
+Syntax
+
+```js
+rand.randomDate([min = 0 [, max = 2147481337]]);
+```
+
+| params | description | type     | value          | default value | optional |
+| ------ | ----------- | -------- | -------------- | ------------- | -------- |
+| `min`  | Minimum     | `number` | 0 - 2147483648 | 0             | +        |
+| `max`  | Maximum     | `number` | 0 - 2147483648 | 2147481337    | +        |
+
+Examples
+
+```js
+rand.randomDate(); // 2003-09-20T12:06:37.000Z
+rand.randomDate(1337000000, 1337000000); // 2012-05-14T12:53:20.000Z
+```
+
+Yes, it's `unix time`. For the year you need use `.randomDateYear()`, for yearS `.randomDateYears()`
+
+---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
+
+#### .randomDateYear()
+
+Will return ONE `date`, with your specified year
+
+Syntax
+
+```js
+rand.randomDateYear(year);
+```
+
+| params | description      | type                      | value     | default value | optional |
+| ------ | ---------------- | ------------------------- | --------- | ------------- | -------- |
+| `year` | Year or \[Years] | `array | number | string` | 0 - 9999+ | -             | -        |
+
+Examples
+
+```js
+rand.randomDateYear('0'); // 0000-03-03T19:56:10.000Z
+rand.randomDateYear(2017); // 2017-03-14T04:19:22.000Z
+rand.randomDateYear(['2007', 2012]); // 2007-09-20T00:26:37.000Z or 2012-08-17T12:27:55.000Z
+```
+
+For the years you need use `.randomDateYears()`
+
+---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
+
+#### .randomDateYears()
+
+Will return ALL `[dateS]` array, with your specified year(s)
+
+Syntax
+
+```js
+rand.randomDateYears(year);
+```
+
+| params | description      | type                      | value     | default value | optional |
+| ------ | ---------------- | ------------------------- | --------- | ------------- | -------- |
+| `year` | Year or \[Years] | `array | number | string` | 0 - 9999+ | -             | -        |
+
+Examples
+
+```js
+rand.randomDateYears('0'); // [0000-01-19T20:29:26.000Z]
+rand.randomDateYears(2017); // [2017-05-04T07:44:08.000Z]
+rand.randomDateYears(['2007', 2012]); // [2007-04-30T15:18:55.000Z, 2012-09-01T02:45:56.000Z]
+```
+
+For the year you need use `.randomDateYear()`
+
+---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
 
 ### Additional
 

@@ -2,7 +2,7 @@
 
 **IN DEVELOPING** 👍
 
-> This package are: random value(date \ number \ bool) generator, and: random value picker
+> This package about: random value(date \ number \ bool) generator, and: random value picker
 
 ## Install
 

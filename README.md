@@ -34,6 +34,15 @@ const rand = require('arandomly');
 
 ---
 
+<!--
+\
+/
+\
+/
+\
+/
+-->
+
 ### Boolean
 
 > All about the `bool` rand
@@ -55,6 +64,15 @@ rand.randBool(); // True or False, 50% chance
 ```
 
 ---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
 
 #### .bool()
 
@@ -80,6 +98,15 @@ rand.bool(50); // Alias = .randBool()
 ```
 
 ---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
 
 ### Number
 
@@ -111,6 +138,15 @@ rand.randInt(100, 999); // 100 to 999
 
 ---
 
+<!--
+\
+/
+\
+/
+\
+/
+-->
+
 #### .random() = .randFloat()
 
 Will return `float`, between **Min** and **Max** (both _inclusive_)
@@ -137,6 +173,15 @@ rand.randFloat(100, 999); // 1.00 to 9.99
 Yes, it's `rand.rand() / 100`, for detailed\expanded please use `.randBigFloat()`
 
 ---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
 
 #### .randBigFloat()
 
@@ -166,13 +211,27 @@ rand.randBigFloat(100, 300, 0); // 1 to 3
 
 ---
 
+<!--
+\
+/
+\
+/
+\
+/
+-->
+
 ### Randomizers
 
 ---
 
----
-
----
+<!--
+\
+/
+\
+/
+\
+/
+-->
 
 ### Additional
 

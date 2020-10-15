@@ -20,7 +20,7 @@
 	"author": "b5414 <b5414b@gmail.com>",
 	"license": "MIT",
 	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/"
+		"registry": "https://npm.pkg.github.com/@b5414"
 	},
 	"bugs": {
 		"url": "https://github.com/b5414/npm_arandomly/issues"

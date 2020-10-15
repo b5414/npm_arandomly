@@ -30,6 +30,8 @@ const rand = require('arandomly');
 			- [.random() = .randFloat()](#random--randfloat)
 			- [.randBigFloat()](#randbigfloat)
 
+---
+
 ### Boolean
 
 > All about the `bool` rand
@@ -70,6 +72,8 @@ rand.bool(10); // Most likely False
 rand.bool(99); // Most likely True
 rand.bool(50); // Alias = .randBool()
 ```
+
+---
 
 ### Number
 
@@ -124,11 +128,6 @@ Yes, it's `rand.rand() / 100`
 
 ---
 
----
-
----
-
----
 
 #### .randBigFloat()
 
@@ -150,3 +149,5 @@ Example
 rand.randBigFloat(); // 0.000 to 1.000
 rand.randBigFloat(90, 100, 4); // 0.9000 to 1.0000
 ```
+
+---

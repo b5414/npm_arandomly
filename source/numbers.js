@@ -79,40 +79,9 @@ const randFloat = random;
 const randBigFloat = (min = 0, max = 100, decimal = 3)=>{
 	[min, max] = minMax(min, max);
 
-	// let r = min + Math.random() * (max - min + 1);
-	let r = Math.random() * (max - min) + min;
-	// let r = max - min + 1;
-	// console.log(r);
-	// r = Math.random() * r;
-	// console.log(r);
-	// r = min + r;
-
-	// if(bool(1))r = max;
-	// else if(bool(1))r = min;
-	return (r / 100).toFixed(decimal);
-};
-
-// let tf = true;
-// for(let k = 0; tf; k++){
-// 	let r = randBigFloat(0, 2, 16);
-// 	console.log(r);
-// 	// if(r === 0 || r > 1){
-// 	if(k > 2){
-// 		tf = false;
-// 	}
-// }
-
-const aaaflaot = (min, max, decimal = 4)=>{
-	let num = Math.pow(10, decimal);
-	console.log(num);
-	let r = rand(min * num, max * num);
-	r = r / num;
-	return (r / 100).toFixed(decimal);
-};
-
-const aaaflaot2 = (min, max, decimal = 4)=>{
 	let r = 0;
-	if(bool(1) && bool(1) && bool(1) && bool(1)){
+	// crunch
+	if(bool(1) && bool(1) && bool(1) && bool(1) && bool(1) && bool(1)){
 		r = randBool() ? max : min;
 	}else{
 		const mpd = Math.pow(10, decimal);
@@ -120,27 +89,6 @@ const aaaflaot2 = (min, max, decimal = 4)=>{
 	}
 	return (r / 100).toFixed(decimal);
 };
-
-// let tf = true;
-// for(let k = 0; tf; k++){
-// 	let r = aaaflaot(0, 100, 10);
-// 	// if(r < 0.00000001 || r >= 1){
-// 	if(r >= 1){
-// 		console.log(r);
-// 		tf = false;
-// 	}
-// }
-
-let arr = [];
-for(let k = 0; k < 200; k++){
-	let r = aaaflaot(90, 100);
-	if(r > 0.9015 && r < 0.9995)k--;
-	else arr.push(r);
-}
-arr.sort();
-arr.forEach((e, i)=>{
-	console.log(i, e);
-});
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

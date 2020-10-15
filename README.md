@@ -2,7 +2,7 @@
 
 > This package are: random value(date \ number \ bool) generator, and: random value picker
 
-👍 **IN DEVELOPING** 👍
+**IN DEVELOPING** 👍
 
 ## Install
 
@@ -25,11 +25,11 @@ const rand = require('arandomly');
     -   [.bool()](#bool)
 -   [Number](#number)
     -   [.randInt() = .rand()](#randint--rand)
-    -   [.random() = .randFloat()](#random--randfloat)
+    -   [.randFloat() = .random()](#randfloat--random)
     -   [.randBigFloat()](#randbigfloat)
 -   [Randomizers](#randomizers)
     -   [.roll()](#roll)
-    -   [.oneOfArray() = .randomElement()](#oneofarray--randomelement)
+    -   [.randomElement() = .oneOfArray()](#randomelement--oneofarray)
     -   [.randomString()](#randomstring)
     -   [.randomDate()](#randomdate)
     -   [.randomDateYear()](#randomdateyear)
@@ -151,7 +151,7 @@ rand.randInt(100, 999); // 100 to 999
 /
 -->
 
-#### .random() = .randFloat()
+#### .randFloat() = .random()
 
 Will return `float`, between **Min** and **Max** (both _inclusive_)
 
@@ -263,7 +263,7 @@ rand.roll(0, 1, 4); /*{
 /
 -->
 
-#### .oneOfArray() = .randomElement()
+#### .randomElement() = .oneOfArray()
 
 Will return `value` element, from given **array**
 

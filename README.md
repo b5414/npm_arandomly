@@ -128,7 +128,6 @@ Yes, it's `rand.rand() / 100`
 
 ---
 
-
 #### .randBigFloat()
 
 Will return `float`, between **Min** and **Max** (both _inclusive_)
@@ -137,11 +136,11 @@ Will return `float`, between **Min** and **Max** (both _inclusive_)
 rand.randBigFloat([min [, max[, decimal]]]);
 ```
 
-| params    | description           | type     | value              | default value | optional |
-| --------- | --------------------- | -------- | ------------------ | ------------- | -------- |
-| `min`     | Minimum               | `number` | 0 - 999+           | 0             | +        |
-| `max`     | Maximum               | `number` | 0 - 999+           | 100           | +        |
-| `decimal` | Num of decimal places | `number` | 1 - 50 (max - 100) | 3             | +        |
+| params    | description           | type     | value    | default value | optional |
+| --------- | --------------------- | -------- | -------- | ------------- | -------- |
+| `min`     | Minimum               | `number` | 0 - 999+ | 0             | +        |
+| `max`     | Maximum               | `number` | 0 - 999+ | 100           | +        |
+| `decimal` | Num of decimal places | `number` | 0 - 38   | 3             | +        |
 
 Example
 
@@ -150,6 +149,12 @@ rand.randBigFloat(); // 0.000 to 1.000
 rand.randBigFloat(0, 1, 4); // 0.0000 to 0.0100
 rand.randBigFloat(0, 1, 9); // 0.000_000_000 to 0.010_000_000
 rand.randBigFloat(90, 100, 4); // 0.9000 to 1.0000
+rand.randBigFloat(100, 300, 0); // 1 to 3
 ```
 
 ---
+
+```js
+padLeft(1, 3, 0); // "001"
+padLeft('1', 4, '0'); // "0001"
+```

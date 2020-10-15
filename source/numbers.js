@@ -34,9 +34,9 @@ const bool = (trueChance = 50)=>{
 /**
  * @description Random number from MIN to MAX (both inclusive)
  *
- * @param {number} [min=0] Minimum
- * @param {number} [max=100] Maximum
- * @return {number} Random number (or float)
+ * @param {number} [min=0] Minimum value
+ * @param {number} [max=100] Maximum value
+ * @return {number} Random value
  */
 const rand = (min = 0, max = 100)=>{
 	[min, max] = minMax(min, max);
@@ -53,12 +53,12 @@ const randInt = rand;
 //
 
 /**
- * @description Random float from MIN to MAX (both inclusive)
- * @summary Same as ".rand()", but "/ 100"
+ * @description Random number from MIN to MAX (both inclusive)
+ * @summary Same as ".rand()", but +"/ 100"
  *
- * @param {number} [min=0] Minimum
- * @param {number} [max=100] Maximum
- * @return {number} Random float (or number)
+ * @param {number} [min=0] Minimum value
+ * @param {number} [max=100] Maximum value
+ * @return {number} Random number
  */
 const random = (min, max)=>rand(min, max) / 100;
 
@@ -70,9 +70,9 @@ const randFloat = random;
 /**
  * @description Random float from MIN to MAX (both inclusive), with N Symbols after point
  *
- * @param {number} [min=0] - Minimum
- * @param {number} [max=100] - Maximum
- * @param {number} [decimal=3] - Symbols after dot (1-20)
+ * @param {number} [min=0] - Minimum value
+ * @param {number} [max=100] - Maximum value
+ * @param {number} [decimal=3] - Number of decimal places (0-38)
  * @return {number} Random float, with N numbers after dot
  */
 const randBigFloat = (min = 0, max = 100, decimal = 3)=>{
@@ -89,9 +89,11 @@ module.exports = {
 	/* bool */
 	bool,
 	randBool,
+	
 	/* int */
 	rand,
 	randInt,
+	
 	/* float */
 	random,
 	randFloat,

@@ -29,6 +29,8 @@ const rand = require('arandomly');
 			- [.randInt() = .rand()](#randint--rand)
 			- [.random() = .randFloat()](#random--randfloat)
 			- [.randBigFloat()](#randbigfloat)
+		- [Randomizers](#randomizers)
+		- [Additional](#additional)
 
 ---
 
@@ -124,7 +126,7 @@ rand.randFloat(1, 2); // 0.01 or 0.02
 rand.randFloat(100, 999); // 1.00 to 9.99
 ```
 
-Yes, it's `rand.rand() / 100`
+Yes, it's `rand.rand() / 100`, for detailed\expanded please use `.randBigFloat()`
 
 ---
 
@@ -154,7 +156,25 @@ rand.randBigFloat(100, 300, 0); // 1 to 3
 
 ---
 
+### Randomizers
+
+---
+
+---
+
+---
+
+### Additional
+
 ```js
 padLeft(1, 3, 0); // "001"
 padLeft('1', 4, '0'); // "0001"
 ```
+
+---
+
+---
+
+---
+
+---

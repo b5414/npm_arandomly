@@ -147,6 +147,8 @@ Example
 
 ```js
 rand.randBigFloat(); // 0.000 to 1.000
+rand.randBigFloat(0, 1, 4); // 0.0000 to 0.0100
+rand.randBigFloat(0, 1, 9); // 0.000_000_000 to 0.010_000_000
 rand.randBigFloat(90, 100, 4); // 0.9000 to 1.0000
 ```
 

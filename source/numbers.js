@@ -78,16 +78,8 @@ const randFloat = random;
  */
 const randBigFloat = (min = 0, max = 100, decimal = 3)=>{
 	[min, max] = minMax(min, max);
-
-	let r = 0;
-	// crunch
-	if(bool(1) && bool(1) && bool(1) && bool(1) && bool(1) && bool(1)){
-		r = randBool() ? max : min;
-	}else{
-		const mpd = Math.pow(10, decimal);
-		r = rand(min * mpd, max * mpd) / mpd;
-	}
-	return (r / 100).toFixed(decimal);
+	const mpd = Math.pow(10, decimal);
+	return (rand(min * mpd, max * mpd) / mpd / 100).toFixed(decimal);
 };
 
 //

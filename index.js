@@ -14,7 +14,7 @@ const {bool, randBool, rand, randInt, random, randFloat, randBigFloat} = require
 const dice = (side = 6)=>{
 	const result = rand(1, side);
 	const visual = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'][result - 1] || false;
-	return {visual, result};
+	return {text: `diced (1 of ${side}): ${result} ${visual ? visual : ''}`, visual, result};
 };
 
 /**
@@ -92,23 +92,13 @@ const randomDateYears = (years = [2020])=>{
 	return years;
 };
 
-//
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//
-
-// todo array for roll
-
 /**
  * @description Random element from object
  *
  * @param {object} obj - Not empty object
  * @returns {value} Element from object
  */
-const oneOfObject = (obj)=>{
-	// todo
-	// get random key with true from object
-	console.log(obj);
-};
+const oneOfObject = (obj)=>oneOfArray(Object.values(obj));
 
 /**
  * @alias oneOfObject
@@ -122,15 +112,16 @@ const randomObjElement = oneOfObject;
 /**
  * @description Random array generator
  *
- * @param {number} [length] Length of (returned) array
- * @param {{number, float, string, bool}} [object] Object with MAXs of random number\float\string_length
- * @returns {array} Random array
+ * @param {number} [leng] Length of array
+ * @param {{number:number, float:number, string:number, bool:number}} [object] Object with MAX length of random [number\float\string_length]
+ * @returns {array} Array with random values
  */
 const randomArrayGen = (leng, obj = {})=>{
 	if(!leng || typeof leng !== 'number' || typeof obj !== 'object' || Array.isArray(obj))return false;
 
 	const arr = ['number', 'float', 'string', 'bool'];
 	obj = Object.assign({number: false, float: false, string: false, bool: false}, obj);
+	console.log(obj);
 
 	const getA = ()=>{
 		// todo need first: oneOfObject();
@@ -148,7 +139,9 @@ const randomArrayGen = (leng, obj = {})=>{
 	return array;
 };
 
-// console.log(randomArrayGen(2, {number: 10}));
+randomArrayGen(1, {});
+
+console.log(randomArrayGen(2, {number: 10}));
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

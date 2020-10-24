@@ -295,9 +295,9 @@ rand.dice([sides = 6]);
 Examples
 
 ```js
-rand.dice(10); // { visual: false, result: 7 }
-rand.dice(); // { visual: '⚄', result: 5 }
-rand.dice(); // { visual: '⚁', result: 2 }
+rand.dice(); // { text: 'diced (1 of 6): 2', visual: '⚁', result: 2 }
+rand.dice(); // { text: 'diced (1 of 6): 5', visual: '⚄', result: 5 }
+rand.dice(10); // { text: 'diced (1 of 10): 7', visual: false, result: 7 }
 ```
 
 Visual only for 1-6 (Default), else - `false`
@@ -333,6 +333,39 @@ Examples
 rand.randomElement([1, 2, 3, 4, 5]); // 1
 rand.randomElement([false, true]); // true
 rand.randomElement(['false', 'true']); // "false"
+```
+
+---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
+
+#### .randomObjElement() = .oneOfObject()
+
+Will return `value` element, from given **object**
+
+Syntax
+
+```js
+rand.randomObjElement(object);
+```
+
+| params   | description | type     | value     | default value | optional |
+| -------- | ----------- | -------- | --------- | ------------- | -------- |
+| `object` | Your object | `object` | Not empty | -             | -        |
+
+Examples
+
+```js
+rand.randomObjElement({a: 1, b: 2}); // 1
+rand.randomObjElement({a: 1, b: 2}); // 2
+rand.randomObjElement({g: ()=>{}}); // [Function: g]
 ```
 
 ---

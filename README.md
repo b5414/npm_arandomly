@@ -12,8 +12,7 @@ npm i arandomly
 yarn add arandomly
 ```
 
-## Connect 
-
+## Connect
 
 ```javascript
 const rand = require('arandomly');
@@ -41,6 +40,7 @@ console.log(roll()); // 13
     -   [.randFloat() = .random()](#randfloat--random)
     -   [.randBigFloat()](#randbigfloat)
 -   [Randomizers](#randomizers)
+    -   [.dice()](#dice)
     -   [.roll()](#roll)
     -   [.randomElement() = .oneOfArray()](#randomelement--oneofarray)
     -   [.randomString()](#randomstring)
@@ -266,6 +266,41 @@ rand.roll(0, 1, 4); /*{
 	padSpace: '0 4 6'
 }*/
 ```
+
+---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
+
+#### .dice()
+
+Will return `object` with `number`: between **1** and **MAX** (both _inclusive_), and `string`: visual symbol
+
+Syntax
+
+```js
+rand.dice([sides = 6]);
+```
+
+| params  | description | type     | value | default value | optional |
+| ------- | ----------- | -------- | ----- | ------------- | -------- |
+| `sides` | Cube sides  | `number` | 1-999 | 6             | +        |
+
+Examples
+
+```js
+rand.dice(10); // { visual: false, result: 7 }
+rand.dice(); // { visual: '⚄', result: 5 }
+rand.dice(); // { visual: '⚁', result: 2 }
+```
+
+Visual only for 1-6 (Default), else - `false`
 
 ---
 

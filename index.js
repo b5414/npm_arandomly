@@ -6,6 +6,18 @@ const {bool, randBool, rand, randInt, random, randFloat, randBigFloat} = require
 //
 
 /**
+ * @description Roll a dice
+ *
+ * @param {number} [side=6] Cube sides
+ * @returns {object} obj {visual, result}
+ */
+const dice = (side = 6)=>{
+	const result = rand(1, side);
+	const visual = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'][result - 1] || false;
+	return {visual, result};
+};
+
+/**
  * @description Roll random number 1 to 100
  *
  * @param {boolean} [detailed=false] Detailed object output
@@ -14,9 +26,8 @@ const {bool, randBool, rand, randInt, random, randFloat, randBigFloat} = require
 const roll = (detailed = false)=>{
 	const result = rand(1, 100);
 	if(detailed){
-		const a = padLeft(result, 3);
-		const b = dilute(a);
-		return {text: `rolls (1-100): ${b}`, result, pad: a, padSpace: b};
+		const padPad = padLeft(result, 3);
+		return {text: `rolls (1-100): ${b}`, result, pad: padPad, padSpace: dilute(padPad)};
 	}
 	return result;
 };
@@ -85,7 +96,6 @@ const randomDateYears = (years = [2020])=>{
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
-// todo kosti
 // todo array for roll
 
 /**
@@ -161,6 +171,7 @@ module.exports = {
 
 	/* index */
 	roll,
+	dice,
 
 	oneOfArray,
 	randomElement,

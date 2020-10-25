@@ -181,23 +181,29 @@ const randomArrayGen = (leng, obj = {})=>{
 	return array;
 };
 
-//
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//
-// todo promise random race
+/**
+ * @description Random output from promises array
+ *
+ * @param {array} arr - Not empty array
+ * @returns {value} One Promise output
+ */
+const randomRace = async(arr)=>await oneOfArray(arr);
 
-const randomRace = async(array)=>{
-	console.log(array);
-};
-
+/*
 (async()=>{
-	const arr = [...Array(10)].map((e, i)=>()=>{
-		console.log(i);
+	const arr = [...Array(10)].map((e, i)=>{
+		return new Promise((yes)=>{
+			setTimeout(yes, 100, i);
+		});
 	});
 
-	let r = await randomRace(arr);
-	console.log(r);
+	let r = await rand.randomRace(arr);
+	console.log(r); // 0 to 9
+	
+	r = await Promise.race(arr);
+	console.log(r); // only 0
 })();
+*/
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -234,4 +240,6 @@ module.exports = {
 	randomDateYear,
 	randomDateYears,
 	randomArrayGen,
+
+	randomRace,
 };

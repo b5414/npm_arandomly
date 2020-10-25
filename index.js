@@ -93,12 +93,28 @@ const randomDateYears = (years = [2020])=>{
 };
 
 /**
+ * @description Random value of element from object
+ *
+ * @param {object} obj - Not empty object
+ * @returns {value} Value
+ */
+const oneValueOfObject = (obj)=>oneOfArray(Object.values(obj));
+
+/**
+ * @alias oneValueOfObject
+ */
+const randomObjValue = oneValueOfObject;
+
+/**
  * @description Random element from object
  *
  * @param {object} obj - Not empty object
- * @returns {value} Element from object
+ * @returns {object} One element from object
  */
-const oneOfObject = (obj)=>oneOfArray(Object.values(obj));
+const oneOfObject = (obj)=>{
+	const a = oneOfArray(Object.keys(obj));
+	return {[a]: obj[a]};
+};
 
 /**
  * @alias oneOfObject
@@ -139,9 +155,7 @@ const randomArrayGen = (leng, obj = {})=>{
 	return array;
 };
 
-randomArrayGen(1, {});
-
-console.log(randomArrayGen(2, {number: 10}));
+// console.log(randomArrayGen(2, {number: 10}));
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -170,6 +184,8 @@ module.exports = {
 	randomElement,
 	oneOfObject,
 	randomObjElement,
+	oneValueOfObject,
+	randomObjValue,
 
 	randomString,
 	randomDate,

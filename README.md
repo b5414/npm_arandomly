@@ -43,6 +43,8 @@ console.log(roll()); // 13
     -   [.dice()](#dice)
     -   [.roll()](#roll)
     -   [.randomElement() = .oneOfArray()](#randomelement--oneofarray)
+    -   [.randomObjElement() = .oneOfObject()](#randomobjelement--oneofobject)
+    -   [.randomObjValue() = .oneValueOfObject()](#randomobjvalue--onevalueofobject)
     -   [.randomString()](#randomstring)
     -   [.randomDate()](#randomdate)
     -   [.randomDateYear()](#randomdateyear)
@@ -348,7 +350,7 @@ rand.randomElement(['false', 'true']); // "false"
 
 #### .randomObjElement() = .oneOfObject()
 
-Will return `value` element, from given **object**
+Will return `object` element, from given **object**
 
 Syntax
 
@@ -363,9 +365,41 @@ rand.randomObjElement(object);
 Examples
 
 ```js
-rand.randomObjElement({a: 1, b: 2}); // 1
-rand.randomObjElement({a: 1, b: 2}); // 2
-rand.randomObjElement({g: ()=>{}}); // [Function: g]
+rand.randomObjElement({a: 1, b: 2}); // {a: 1}
+rand.randomObjElement({a: 1, b: 2}); // {b: 2}
+rand.randomObjElement({g: ()=>{}}); // {g: [Function: g]}
+```
+
+---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
+#### .randomObjValue() = .oneValueOfObject()
+
+Will return `value` element, from given **object**
+
+Syntax
+
+```js
+rand.randomObjValue(object);
+```
+
+| params   | description | type     | value     | default value | optional |
+| -------- | ----------- | -------- | --------- | ------------- | -------- |
+| `object` | Your object | `object` | Not empty | -             | -        |
+
+Examples
+
+```js
+rand.randomObjValue({a: 1, b: 2}); // 1
+rand.randomObjValue({a: 1, b: 2}); // 2
+rand.randomObjValue({g: ()=>{}}); // [Function: g]
 ```
 
 ---

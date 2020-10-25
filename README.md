@@ -315,6 +315,57 @@ Visual only for 1-6 (Default), else - `false`
 /
 -->
 
+#### .randomArrayGen()
+
+Will return `array` with specified leng and type of `value`s
+
+Syntax
+
+```js
+rand.randomArrayGen(leng = 6[, obj = {string: true}]);
+```
+
+| params       | description          | type              | value                                 | default value | optional |
+| ------------ | -------------------- | ----------------- | ------------------------------------- | ------------- | -------- |
+| `leng`       | Output array length  | `number`          | 1-999                                 | -             | -        |
+| `obj`        | Types and it length  | `object`          | number / float / string / bool / date | string        | +        |
+| `obj.number` | Type number + Length | `bool` / `number` | `true` or 1-16                        | 3             | +        |
+| `obj.float`  | Type float + Decimal | `bool` / `number` | `true` or 1-38                        | 3             | +        |
+| `obj.string` | Type string + Length | `bool` / `number` | `true` or 1-999                       | 4             | +        |
+| `obj.bool`   | Type bool + Chance%  | `bool` / `number` | `true` or 1-100%                      | 50%           | +        |
+| `obj.date`   | Type date + Year     | `bool` / `number` | `true` or 1970 and 2038               | 2020          | +        |
+
+Examples
+
+```js
+rand.randomArrayGen(2); // [ 'PPTU', 'tFIN' ]
+rand.randomArrayGen(1, {string: 12}); // [ 'kCCpKQBfXJhv' ]
+rand.randomArrayGen(1, {string: 12, number: 12}); // [ 'fAdfgzadfgFG', 413242341234 ]
+rand.randomArrayGen(10, {bool: 100}); // [ true x10 ]
+rand.randomArrayGen(2, {string: 1, number: 10, float: true, date: true}); // [ 7552494770, 'q' ]
+rand.randomArrayGen(6, {string: 1, number: 1, float: true, date: true}); /* [
+	2,
+	0.544,
+	0.826,
+	1983-02-04T00:48:53.000Z,
+	'G',
+	4
+] */
+```
+
+Visual only for 1-6 (Default), else - `false`
+
+---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
+
 #### .randomElement() = .oneOfArray()
 
 Will return `value` element, from given **array**
@@ -539,6 +590,54 @@ rand.randomDateYears(['2007', 2012]); // [2007-04-30T15:18:55.000Z, 2012-09-01T0
 ```
 
 For only one random year use `.randomDateYear()`
+
+---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
+
+
+#### .randomRace()
+
+Will return one function or one Promise from specified promises array
+
+Syntax
+
+```js
+rand.randomRace(arr);
+```
+
+| params | description    | type    | value           | default value | optional |
+| ------ | -------------- | ------- | --------------- | ------------- | -------- |
+| `arr`  | Promises array | `array` | `new Promise()` | -             | -        |
+
+Examples
+
+```js
+(async()=>{
+	const arr = [...Array(10)].map((e, i)=>{
+		return new Promise((yes)=>{
+			setTimeout(yes, 1000, i);
+		});
+	});
+
+	let r = await rand.randomRace(arr);
+	console.log('rand', r); // 0 to 9
+
+	rand.randomRace(arr).then((a)=>{
+		console.log('then', a); // 0 to 9
+	});
+
+	r = await Promise.race(arr);
+	console.log('race', r); // only 0
+})();
+```
 
 ---
 

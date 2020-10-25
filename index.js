@@ -128,7 +128,7 @@ const randomObjElement = oneOfObject;
  * @param {{number:number, float:number, string:number, bool:number}} [obj] Object with MAX length of random [number\float\string_length]
  * @returns {array} Array with random values
  */
-const randomArrayGen = (leng, obj = {})=>{
+const randomArrayGen = (leng, obj = {string: true})=>{
 	if(!leng || typeof leng !== 'number' || typeof obj !== 'object' || Array.isArray(obj))return false;
 
 	let arr = ['number', 'float', 'string', 'bool', 'date'];
@@ -177,6 +177,7 @@ const randomArrayGen = (leng, obj = {})=>{
 	array.forEach((e, i)=>{
 		const val = oneOfArray(arr);
 		array[i] = doShish(val, obj[val]);
+		// todo check: each type - contained
 	});
 	return array;
 };
@@ -187,23 +188,7 @@ const randomArrayGen = (leng, obj = {})=>{
  * @param {array} arr - Not empty array
  * @returns {value} One Promise output
  */
-const randomRace = async(arr)=>await oneOfArray(arr);
-
-/*
-(async()=>{
-	const arr = [...Array(10)].map((e, i)=>{
-		return new Promise((yes)=>{
-			setTimeout(yes, 100, i);
-		});
-	});
-
-	let r = await rand.randomRace(arr);
-	console.log(r); // 0 to 9
-	
-	r = await Promise.race(arr);
-	console.log(r); // only 0
-})();
-*/
+const randomRace = (arr)=>oneOfArray(arr);
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

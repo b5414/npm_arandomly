@@ -135,27 +135,53 @@ const randomObjElement = oneOfObject;
 const randomArrayGen = (leng, obj = {})=>{
 	if(!leng || typeof leng !== 'number' || typeof obj !== 'object' || Array.isArray(obj))return false;
 
-	const arr = ['number', 'float', 'string', 'bool'];
-	obj = Object.assign({number: false, float: false, string: false, bool: false}, obj);
-	console.log(obj);
+	let arr = ['number', 'float', 'string', 'bool', 'date'];
+	// obj = Object.assign({number: false, float: false, string: false, bool: false}, obj);
 
-	const getA = ()=>{
-		// todo need first: oneOfObject();
-		// randomString();
-		console.log('aaaaaaaa');
-	};
+	let k = 0;
+	for(let [key, val] of Object.entries(obj)){
+		if(arr.indexOf(key) === -1 || val === false){
+			delete obj[key];
+			continue;
+		}
+		k++;
+	}
+
+	if(k === 0)return false;
+	arr = Object.keys(obj);
 
 	let array = new Array(leng).fill(!0);
-
 	array.forEach((e, i)=>{
-		const a = getA();
-		array[i] = a;
+		let val = oneOfArray(arr);
+		const huh = obj[val];
+
+		console.log(val, huh);
+
+		if(val === 'string')val = randomString(huh);
+		else if(val === 'number')val = rand(0, huh);
+		else if(val === 'bool'){
+			if(huh === true)val = randBool();
+			else val = bool(huh);
+		}else if(val === 'date'){
+			if(huh === true)val = randomDate();
+			else val = randomDateYear(huh);
+		}
+		array[i] = val;
 	});
 
 	return array;
 };
 
-// console.log(randomArrayGen(2, {number: 10}));
+console.log('');
+// console.log(randomArrayGen(2, {number: 10, float: 20, gay: 2}));
+console.log('');
+// console.log(randomArrayGen(2, {number: 10, float: 20, gay: 2}));
+console.log(randomArrayGen(2, {string: 20}));
+console.log('');
+console.log(randomArrayGen(2, {date: true}));
+// console.log(randomArrayGen(2, {number: 10, float: 20, gay: 2}));
+
+// todo promise random race
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

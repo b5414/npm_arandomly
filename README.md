@@ -216,7 +216,7 @@ rand.randBigFloat([min = 0[, max = 100[, decimal = 3]]]);
 | --------- | --------------------- | -------- | -------- | ------------- | -------- |
 | `min`     | Minimum               | `number` | 0 - 999+ | 0             | +        |
 | `max`     | Maximum               | `number` | 0 - 999+ | 100           | +        |
-| `decimal` | Num of decimal places | `number` | 0 - 38   | 3             | +        |
+| `decimal` | Num of decimal places | `number` | 0 - 18   | 3             | +        |
 
 Examples
 

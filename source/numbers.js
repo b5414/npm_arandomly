@@ -72,13 +72,13 @@ const randFloat = random;
  *
  * @param {number} [min=0] - Minimum value
  * @param {number} [max=100] - Maximum value
- * @param {number} [decimal=3] - Number of decimal places (0-38)
+ * @param {number} [decimal=3] - Number of decimal places (0-18)
  * @return {number} Random float, with N numbers after dot
  */
 const randBigFloat = (min = 0, max = 100, decimal = 3)=>{
 	[min, max] = minMax(min, max);
 	const mpd = Math.pow(10, decimal);
-	return (rand(min * mpd, max * mpd) / mpd / 100).toFixed(decimal);
+	return parseFloat((rand(min * mpd, max * mpd) / mpd / 100).toFixed(decimal));
 };
 
 //

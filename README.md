@@ -52,6 +52,7 @@ console.log(roll()); // 13
 - [Additional](#additional)
 	- [.randomArrayGen()](#randomarraygen)
 	- [.randomRace()](#randomrace)
+	- [Another](#another)
 
 ---
 
@@ -650,6 +651,8 @@ Examples
 \
 /
 -->
+
+#### Another
 
 Syntax
 

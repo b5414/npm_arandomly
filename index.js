@@ -125,14 +125,14 @@ const randomObjElement = oneOfObject;
  * @description Random array generator
  *
  * @param {number} [leng] Length of array
- * @param {{number:number, float:number, string:number, bool:number}} [object] Object with MAX length of random [number\float\string_length]
+ * @param {{number:number, float:number, string:number, bool:number}} [obj] Object with MAX length of random [number\float\string_length]
  * @returns {array} Array with random values
  */
 const randomArrayGen = (leng, obj = {})=>{
 	if(!leng || typeof leng !== 'number' || typeof obj !== 'object' || Array.isArray(obj))return false;
 
 	let arr = ['number', 'float', 'string', 'bool', 'date'];
-	
+
 	let k = 0;
 	for(let [key, val] of Object.entries(obj)){
 		if(arr.indexOf(key) === -1 || val === false){
@@ -184,8 +184,20 @@ const randomArrayGen = (leng, obj = {})=>{
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-
 // todo promise random race
+
+const randomRace = async(array)=>{
+	console.log(array);
+};
+
+(async()=>{
+	const arr = [...Array(10)].map((e, i)=>()=>{
+		console.log(i);
+	});
+
+	let r = await randomRace(arr);
+	console.log(r);
+})();
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

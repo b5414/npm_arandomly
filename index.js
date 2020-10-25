@@ -121,10 +121,6 @@ const oneOfObject = (obj)=>{
  */
 const randomObjElement = oneOfObject;
 
-//
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//
-
 /**
  * @description Random array generator
  *
@@ -136,8 +132,7 @@ const randomArrayGen = (leng, obj = {})=>{
 	if(!leng || typeof leng !== 'number' || typeof obj !== 'object' || Array.isArray(obj))return false;
 
 	let arr = ['number', 'float', 'string', 'bool', 'date'];
-	// obj = Object.assign({number: false, float: false, string: false, bool: false}, obj);
-
+	
 	let k = 0;
 	for(let [key, val] of Object.entries(obj)){
 		if(arr.indexOf(key) === -1 || val === false){
@@ -146,40 +141,49 @@ const randomArrayGen = (leng, obj = {})=>{
 		}
 		k++;
 	}
-
 	if(k === 0)return false;
+
+	const doShish = (val, huh)=>{
+		switch(val){
+			case 'string':
+				if(huh === true)val = randomString();
+				else val = randomString(huh);
+				break;
+			case 'number':
+				if(huh === true)huh = 3;
+				const mp = Math.pow(10, huh);
+				val = parseInt(randBigFloat(0, 100, huh) * mp);
+				while(huh < mp * 10)huh = huh * 10;
+				break;
+			case 'float':
+				if(huh === true)huh = 3;
+				val = randBigFloat(0, 100, huh);
+				break;
+			case 'date':
+				if(huh === true)val = randomDate();
+				else val = randomDateYear(huh);
+				break;
+			case 'bool':
+				if(huh === true)val = randBool();
+				else val = bool(huh);
+				break;
+		}
+		return val;
+	};
+
 	arr = Object.keys(obj);
 
 	let array = new Array(leng).fill(!0);
 	array.forEach((e, i)=>{
-		let val = oneOfArray(arr);
-		const huh = obj[val];
-
-		console.log(val, huh);
-
-		if(val === 'string')val = randomString(huh);
-		else if(val === 'number')val = rand(0, huh);
-		else if(val === 'bool'){
-			if(huh === true)val = randBool();
-			else val = bool(huh);
-		}else if(val === 'date'){
-			if(huh === true)val = randomDate();
-			else val = randomDateYear(huh);
-		}
-		array[i] = val;
+		const val = oneOfArray(arr);
+		array[i] = doShish(val, obj[val]);
 	});
-
 	return array;
 };
 
-console.log('');
-// console.log(randomArrayGen(2, {number: 10, float: 20, gay: 2}));
-console.log('');
-// console.log(randomArrayGen(2, {number: 10, float: 20, gay: 2}));
-console.log(randomArrayGen(2, {string: 20}));
-console.log('');
-console.log(randomArrayGen(2, {date: true}));
-// console.log(randomArrayGen(2, {number: 10, float: 20, gay: 2}));
+//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
 
 // todo promise random race
 

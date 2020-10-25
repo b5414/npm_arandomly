@@ -32,24 +32,26 @@ console.log(roll()); // 13
 
 ## Documentation
 
--   [Boolean](#boolean)
-    -   [.randBool()](#randbool)
-    -   [.bool()](#bool)
--   [Number](#number)
-    -   [.randInt() = .rand()](#randint--rand)
-    -   [.randFloat() = .random()](#randfloat--random)
-    -   [.randBigFloat()](#randbigfloat)
--   [Randomizers](#randomizers)
-    -   [.dice()](#dice)
-    -   [.roll()](#roll)
-    -   [.randomElement() = .oneOfArray()](#randomelement--oneofarray)
-    -   [.randomObjElement() = .oneOfObject()](#randomobjelement--oneofobject)
-    -   [.randomObjValue() = .oneValueOfObject()](#randomobjvalue--onevalueofobject)
-    -   [.randomString()](#randomstring)
-    -   [.randomDate()](#randomdate)
-    -   [.randomDateYear()](#randomdateyear)
-    -   [.randomDateYears()](#randomdateyears)
--   [Additional](#additional)
+- [Boolean](#boolean)
+	- [.randBool()](#randbool)
+	- [.bool()](#bool)
+- [Numbers](#numbers)
+	- [.randInt() = .rand()](#randint--rand)
+	- [.randFloat() = .random()](#randfloat--random)
+	- [.randBigFloat()](#randbigfloat)
+- [Randomizers](#randomizers)
+	- [.roll()](#roll)
+	- [.dice()](#dice)
+	- [.randomElement() = .oneOfArray()](#randomelement--oneofarray)
+	- [.randomObjElement() = .oneOfObject()](#randomobjelement--oneofobject)
+	- [.randomObjValue() = .oneValueOfObject()](#randomobjvalue--onevalueofobject)
+	- [.randomString()](#randomstring)
+	- [.randomDate()](#randomdate)
+	- [.randomDateYear()](#randomdateyear)
+	- [.randomDateYears()](#randomdateyears)
+- [Additional](#additional)
+	- [.randomArrayGen()](#randomarraygen)
+	- [.randomRace()](#randomrace)
 
 ---
 
@@ -127,7 +129,7 @@ rand.bool(50); // Alias = .randBool()
 /
 -->
 
-### Number
+### Numbers
 
 > All about the `number`s rand
 
@@ -300,57 +302,6 @@ Examples
 rand.dice(); // { text: 'diced (1 of 6): 2', visual: '⚁', result: 2 }
 rand.dice(); // { text: 'diced (1 of 6): 5', visual: '⚄', result: 5 }
 rand.dice(10); // { text: 'diced (1 of 10): 7', visual: false, result: 7 }
-```
-
-Visual only for 1-6 (Default), else - `false`
-
----
-
-<!--
-\
-/
-\
-/
-\
-/
--->
-
-#### .randomArrayGen()
-
-Will return `array` with specified leng and type of `value`s
-
-Syntax
-
-```js
-rand.randomArrayGen(leng = 6[, obj = {string: true}]);
-```
-
-| params       | description          | type              | value                                 | default value | optional |
-| ------------ | -------------------- | ----------------- | ------------------------------------- | ------------- | -------- |
-| `leng`       | Output array length  | `number`          | 1-999                                 | -             | -        |
-| `obj`        | Types and it length  | `object`          | number / float / string / bool / date | string        | +        |
-| `obj.number` | Type number + Length | `bool` / `number` | `true` or 1-16                        | 3             | +        |
-| `obj.float`  | Type float + Decimal | `bool` / `number` | `true` or 1-38                        | 3             | +        |
-| `obj.string` | Type string + Length | `bool` / `number` | `true` or 1-999                       | 4             | +        |
-| `obj.bool`   | Type bool + Chance%  | `bool` / `number` | `true` or 1-100%                      | 50%           | +        |
-| `obj.date`   | Type date + Year     | `bool` / `number` | `true` or 1970 and 2038               | 2020          | +        |
-
-Examples
-
-```js
-rand.randomArrayGen(2); // [ 'PPTU', 'tFIN' ]
-rand.randomArrayGen(1, {string: 12}); // [ 'kCCpKQBfXJhv' ]
-rand.randomArrayGen(1, {string: 12, number: 12}); // [ 'fAdfgzadfgFG', 413242341234 ]
-rand.randomArrayGen(10, {bool: 100}); // [ true x10 ]
-rand.randomArrayGen(2, {string: 1, number: 10, float: true, date: true}); // [ 7552494770, 'q' ]
-rand.randomArrayGen(6, {string: 1, number: 1, float: true, date: true}); /* [
-	2,
-	0.544,
-	0.826,
-	1983-02-04T00:48:53.000Z,
-	'G',
-	4
-] */
 ```
 
 Visual only for 1-6 (Default), else - `false`
@@ -602,6 +553,56 @@ For only one random year use `.randomDateYear()`
 /
 -->
 
+### Additional
+
+#### .randomArrayGen()
+
+Will return `array` with specified leng and type of `value`s
+
+Syntax
+
+```js
+rand.randomArrayGen(leng = 6[, obj = {string: true}]);
+```
+
+| params       | description          | type              | value                                 | default value | optional |
+| ------------ | -------------------- | ----------------- | ------------------------------------- | ------------- | -------- |
+| `leng`       | Output array length  | `number`          | 1-999                                 | -             | -        |
+| `obj`        | Types and it length  | `object`          | number / float / string / bool / date | string        | +        |
+| `obj.number` | Type number + Length | `bool` / `number` | `true` or 1-16                        | 3             | +        |
+| `obj.float`  | Type float + Decimal | `bool` / `number` | `true` or 1-38                        | 3             | +        |
+| `obj.string` | Type string + Length | `bool` / `number` | `true` or 1-999                       | 4             | +        |
+| `obj.bool`   | Type bool + Chance%  | `bool` / `number` | `true` or 1-100%                      | 50%           | +        |
+| `obj.date`   | Type date + Year     | `bool` / `number` | `true` or 1970 and 2038               | 2020          | +        |
+
+Examples
+
+```js
+rand.randomArrayGen(2); // [ 'PPTU', 'tFIN' ]
+rand.randomArrayGen(1, {string: 12}); // [ 'kCCpKQBfXJhv' ]
+rand.randomArrayGen(1, {string: 12, number: 12}); // [ 'fAdfgzadfgFG', 413242341234 ]
+rand.randomArrayGen(10, {bool: 100}); // [ true x10 ]
+rand.randomArrayGen(2, {string: 1, number: 10, float: true, date: true}); // [ 7552494770, 'q' ]
+rand.randomArrayGen(6, {string: 1, number: 1, float: true, date: true}); /* [
+	2,
+	0.544,
+	0.826,
+	1983-02-04T00:48:53.000Z,
+	'G',
+	4
+] */
+```
+
+---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
 
 #### .randomRace()
 
@@ -649,8 +650,6 @@ Examples
 \
 /
 -->
-
-### Additional
 
 Syntax
 

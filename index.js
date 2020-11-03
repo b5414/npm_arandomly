@@ -35,33 +35,27 @@ const roll = (detailed = false)=>{
 /**
  * @description Slot machine
  *
- * @param {number} [spins=1] Arrays quantity
- * @returns {array} aaaaaaaaaa
+ * @param {number} [spins=1] Suitable for animations OR if slot machines > 1
+ * @param {number} [reels=3] Number of reels (cylinders with fruits)
+ * @param {array} [visual] Reels content
+ * @returns {array} Array of arrayS with objectS = {index, visual}
  */
-const slot = (spins = 1, view = 3, visual = false)=>{
-	if(!visual)visual = ['🍒', '🍎', '🍋', '🍑', '🍇', '🍉', '🥭', '🍓', '🍐'];
+const slot = (spins = 1, reels = 3, visual = false)=>{
+	if(!visual || !Array.isArray(visual))visual = ['🍒', '🍎', '🍋', '🍑', '🍇', '🍉', '🥭', '🍓', '🍐'];
+
 	const doSpin = ()=>{
-		let result = [];
-		for(let k = 0; k < view; k++){
+		let fewreels = [];
+		for(let k = 0; k < reels; k++){
 			const index = rand(0, visual.length - 1);
-			result.push({index, element: visual[index]});
+			fewreels.push({index, visual: visual[index]});
 		}
-		return result;
+		return fewreels;
 	};
 
 	let result = [];
-	while(result.length < spins){
-		result.push(doSpin(view));
-	}
+	while(result.length < spins)result.push(doSpin());
 	return result;
 };
-
-(async()=>{
-	await new Promise((yes)=>{
-		setTimeout(yes, 1);
-	});
-	console.log(slot(2, 4));
-})();
 
 /**
  * @description Random element from array
@@ -249,6 +243,7 @@ module.exports = {
 	/* index */
 	roll,
 	dice,
+	slot,
 
 	oneOfArray,
 	randomElement,

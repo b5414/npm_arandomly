@@ -38,27 +38,29 @@ const roll = (detailed = false)=>{
  * @param {number} [spins=1] Arrays quantity
  * @returns {array} aaaaaaaaaa
  */
-const slot = (spins = 1)=>{
-	const visual = ['🍒', '🍎', '🍋', '🍑', '🍇', '🍉', '🥭', '🍓', '🍐'];
-	const randomElement2 = (arr)=>{
-		const index = rand(0, arr.length - 1);
-		return {index, element: arr[index]};
+const slot = (spins = 1, view = 3, visual = false)=>{
+	if(!visual)visual = ['🍒', '🍎', '🍋', '🍑', '🍇', '🍉', '🥭', '🍓', '🍐'];
+	const doSpin = ()=>{
+		let result = [];
+		for(let k = 0; k < view; k++){
+			const index = rand(0, visual.length - 1);
+			result.push({index, element: visual[index]});
+		}
+		return result;
 	};
-	const doSpin = ()=>[randomElement(visual), randomElement(visual), randomElement(visual)];
 
 	let result = [];
 	while(result.length < spins){
-		result.push(doSpin());
+		result.push(doSpin(view));
 	}
 	return result;
 };
 
 (async()=>{
-	// await new Promise((yes)=>{
-	// 	setTimeout(yes, 100);
-	// });
-
-	console.log(slot(4));
+	await new Promise((yes)=>{
+		setTimeout(yes, 1);
+	});
+	console.log(slot(2, 4));
 })();
 
 /**

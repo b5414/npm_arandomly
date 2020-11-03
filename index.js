@@ -33,6 +33,35 @@ const roll = (detailed = false)=>{
 };
 
 /**
+ * @description Slot machine
+ *
+ * @param {number} [spins=1] Arrays quantity
+ * @returns {array} aaaaaaaaaa
+ */
+const slot = (spins = 1)=>{
+	const visual = ['🍒', '🍎', '🍋', '🍑', '🍇', '🍉', '🥭', '🍓', '🍐'];
+	const randomElement2 = (arr)=>{
+		const index = rand(0, arr.length - 1);
+		return {index, element: arr[index]};
+	};
+	const doSpin = ()=>[randomElement(visual), randomElement(visual), randomElement(visual)];
+
+	let result = [];
+	while(result.length < spins){
+		result.push(doSpin());
+	}
+	return result;
+};
+
+(async()=>{
+	// await new Promise((yes)=>{
+	// 	setTimeout(yes, 100);
+	// });
+
+	console.log(slot(4));
+})();
+
+/**
  * @description Random element from array
  *
  * @param {array} arr - Not empty array
@@ -189,13 +218,6 @@ const randomArrayGen = (leng, obj = {string: true})=>{
  * @returns {value} One Promise output
  */
 const randomRace = (arr)=>oneOfArray(arr);
-
-//
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//
-
-// todo SLOT
-// [max = 10] in "3 columns"
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

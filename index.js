@@ -182,7 +182,9 @@ const randomArrayGen = (leng, obj = {string: true})=>{
 				if(huh === true)huh = 3;
 				const mp = Math.pow(10, huh);
 				val = parseInt(randBigFloat(0, 100, huh) * mp);
-				while(huh < mp * 10)huh = huh * 10;
+				while(val < mp / 10)val = val * 10;
+				while(val > mp)val = val / 10;
+				val = parseInt(val);
 				break;
 			case 'float':
 				if(huh === true)huh = 3;

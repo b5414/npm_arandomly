@@ -194,6 +194,13 @@ const randomRace = (arr)=>oneOfArray(arr);
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
+// todo SLOT
+// [max = 10] in "3 columns"
+
+//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+
 module.exports = {
 	/* numbers */
 	bool,

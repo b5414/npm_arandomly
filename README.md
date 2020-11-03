@@ -42,6 +42,7 @@ console.log(roll()); // 13
 - [Randomizers](#randomizers)
 	- [.roll()](#roll)
 	- [.dice()](#dice)
+	- [.slot()](#slot)
 	- [.randomElement() = .oneOfArray()](#randomelement--oneofarray)
 	- [.randomObjElement() = .oneOfObject()](#randomobjelement--oneofobject)
 	- [.randomObjValue() = .oneValueOfObject()](#randomobjvalue--onevalueofobject)
@@ -306,6 +307,57 @@ rand.dice(10); // { text: 'diced (1 of 10): 7', visual: false, result: 7 }
 ```
 
 Visual only for 1-6 (Default), else - `false`
+
+---
+
+<!--
+\
+/
+\
+/
+\
+/
+-->
+
+#### .slot()
+
+Will return 2x`array` and `object` in, with **index** and **visual** keys
+
+Syntax
+
+```js
+rand.slot([spins = 1[, reels = 3[, visual = false]]]);
+// if(!visual)visual = ['🍒', '🍎', '🍋', '🍑', '🍇', '🍉', '🥭', '🍓', '🍐'];
+```
+
+| params   | description                                     | type     | value | default value       | optional |
+| -------- | ----------------------------------------------- | -------- | ----- | ------------------- | -------- |
+| `spins`  | Suitable for animations OR if slot machines > 1 | `number` | 1-999 | 1                   | +        |
+| `reels`  | Number of reels (cylinders with fruits)         | `number` | 1-999 | 3                   | +        |
+| `visual` | Reels content (for example fruits)              | `array`  | 1-999 | _fruits_ (length 9) | +        |
+
+Examples
+
+```js
+rand.slot(); /* [[
+	{index: 2, visual: '🍋'},
+	{index: 7, visual: '🍓'},
+	{index: 8, visual: '🍐'},
+]] */
+rand.slot(); /* [[
+	{index: 4, visual: '🍇'},
+	{index: 7, visual: '🍓'},
+	{index: 1, visual: '🍎'},
+], [
+	{index: 7, visual: '🍓'},
+	{index: 2, visual: '🍋'},
+	{index: 6, visual: '🥭'},
+]] */
+rand.slot(1, 2, ['a', 'b', '🥰']); /* [[
+	{index: 2, visual: '🥰'},
+	{index: 1, visual: 'b'},
+]] */
+```
 
 ---
 

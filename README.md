@@ -570,7 +570,7 @@ rand.randomArrayGen(leng = 6[, obj = {string: true}]);
 | ------------ | -------------------- | ----------------- | ------------------------------------- | ------------- | -------- |
 | `leng`       | Output array length  | `number`          | 1-999                                 | -             | -        |
 | `obj`        | Types and it length  | `object`          | number / float / string / bool / date | string        | +        |
-| `obj.number` | Type number + Length | `bool` / `number` | `true` or 1-16                        | 3             | +        |
+| `obj.number` | Type number + Length | `bool` / `number` | `true` or 1-16 (or more, but 000...)  | 3             | +        |
 | `obj.float`  | Type float + Decimal | `bool` / `number` | `true` or 1-38                        | 3             | +        |
 | `obj.string` | Type string + Length | `bool` / `number` | `true` or 1-999                       | 4             | +        |
 | `obj.bool`   | Type bool + Chance%  | `bool` / `number` | `true` or 1-100%                      | 50%           | +        |
@@ -579,6 +579,13 @@ rand.randomArrayGen(leng = 6[, obj = {string: true}]);
 Examples
 
 ```js
+/*
+if number:
+	1 > 0 - 9
+	2 > 10 - 99
+	3 > 100 - 999
+*/
+
 rand.randomArrayGen(2); // [ 'PPTU', 'tFIN' ]
 rand.randomArrayGen(1, {string: 12}); // [ 'kCCpKQBfXJhv' ]
 rand.randomArrayGen(1, {string: 12, number: 12}); // [ 'fAdfgzadfgFG', 413242341234 ]

@@ -1,4 +1,4 @@
-# a RandomLy
+# a [RandomLy](https://www.npmjs.com/package/arandomly)
 
 **IN DEVELOPING** 👍
 
@@ -53,7 +53,7 @@ console.log(roll()); // 13
 - [Additional](#additional)
 	- [.randomArrayGen()](#randomarraygen)
 	- [.randomRace()](#randomrace)
-	- [Another](#another)
+	- [Another functions](#another-functions)
 
 ---
 
@@ -711,7 +711,7 @@ Examples
 /
 -->
 
-#### Another
+#### Another functions
 
 Syntax
 

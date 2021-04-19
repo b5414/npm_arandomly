@@ -328,6 +328,26 @@ const randomArrayGen = (leng, obj = {string: true})=>{
  */
 const randomRace = (arr)=>oneOfArray(arr);
 
+/**
+ * @description Random code generator (for sms)
+ *
+ * @param {number} [len=3] Length or code
+ */
+const randomCode = (len = 3)=>{
+	let arr = [];
+	for(let k = 0; k <= len; k++){
+		let b = 5;
+		if(randBool()){
+			const c = arr[arr.length - 1];
+			if(c)b = rand(c, oneOfArray([c - 1, c + 1, c - 2, c + 2]));
+			if(b > 9)b = b - 8;
+			if(b < 0)b = b + 9;
+		}else b = rand(1, 9);
+		arr.push(b);
+	}
+	return arr;
+};
+
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
@@ -359,6 +379,7 @@ module.exports = {
 	oneValueOfObject,
 	randomObjValue,
 
+	randomCode,
 	randomString,
 	randomDate,
 	randomDateYear,

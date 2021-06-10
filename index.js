@@ -7,10 +7,7 @@
  * @returns {string} Padded string
  */
 const padLeft = (n, len = 3, pad = 0)=>{
-	if(`${n}`.length < len){
-		n = `${pad}${n}`;
-		return padLeft(n, len, pad);
-	}
+	while(`${n}`.length < len)n = `${pad}${n}`;
 	return n;
 };
 
@@ -30,37 +27,41 @@ const dilute = (value, glue = ' ')=>`${value}`.split('').join(`${glue}`);
  * @param {number} any Number
  * @returns {array} array [min, max] of numbers
  */
-const minMax = (min, max)=>{
-	if(min > max)[min, max] = [max, min];
-	return [min, max];
-};
+const minMax = (min, max)=>(min > max ? [max, min] : [min, max]);
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
 /**
- * @description Random bool value
+ * @description Random bool
  *
  * @return {boolean} True or False
  */
-const randBool = ()=>!rand(0, 1);
+const bool = ()=>Math.random() < 0.5;
+
+/**
+ * @alias bool
+ */
+const randBool = bool;
 
 /**
  * @description Random bool, with true chance percent
  *
- * @param {number} [trueChance=50] - Percentage chance to True
+ * @param {number} [trueChance=50] - Percentage chance to get True
  * @return {boolean} True or False
  */
-const bool = (trueChance = 50)=>{
+const boolChance = (trueChance)=>{
+	trueChance = parseInt(trueChance);
 	if(!trueChance && trueChance !== 0)trueChance = 50;
-	else trueChance = parseInt(trueChance);
 
-	if(trueChance <= 0)return false;
-	else if(trueChance >= 100)return true;
+	if(trueChance < 1)return false;
+	else if(trueChance > 99)return true;
 	else if(trueChance !== 50)return rand(0, 100) <= trueChance;
 	return randBool();
 };
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /**
  * @description Random number from MIN to MAX (both inclusive)
@@ -78,6 +79,8 @@ const rand = (min = 0, max = 100)=>{
  * @alias rand
  */
 const randInt = rand;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /**
  * @description Random number from MIN to MAX (both inclusive)
@@ -109,19 +112,19 @@ const randBigFloat = (min = 0, max = 100, decimal = 3)=>{
 };
 
 //
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 
 /**
  * @description Roll a dice
  *
  * @param {number} [side=6] Cube sides
- * @returns {object} obj {visual, result}
+ * @returns {object} obj {result, text, visual}
  */
 const dice = (side = 6)=>{
 	const result = rand(1, side);
 	const visual = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'][result - 1] || false;
-	return {text: `diced (1 of ${side}): ${result} ${visual ? visual : ''}`, visual, result};
+	return {result, text: `diced (1 of ${side}): ${result} ${visual ? visual : ''}`, visual};
 };
 
 /**
@@ -141,24 +144,26 @@ const roll = ()=>{
  * @param {number} [spins=1] Suitable for animations OR if slot machines > 1
  * @param {number} [reels=3] Number of reels (cylinders with fruits)
  * @param {array} [visual] Reels content
- * @returns {array} Array of arrayS with objectS = {index, visual}
+ * @returns {array} Array of arrayS with objectS = {value, visual}
  */
 const slot = (spins = 1, reels = 3, visual = false)=>{
 	if(!visual || !Array.isArray(visual))visual = ['🍒', '🍎', '🍋', '🍑', '🍇', '🍉', '🥭', '🍓', '🍐'];
 
 	const doSpin = ()=>{
-		let fewreels = [];
-		for(let k = 0; k < reels; k++){
-			const index = rand(0, visual.length - 1);
-			fewreels.push({index, visual: visual[index]});
+		const fewreels = [];
+		while(fewreels.length < reels){
+			const value = rand(0, visual.length - 1);
+			fewreels.push({value, visual: visual[value]});
 		}
 		return fewreels;
 	};
 
-	let result = [];
-	while(result.length < spins)result.push(doSpin());
-	return result;
+	return [...new Array(spins)].map(()=>doSpin());
 };
+
+//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
 
 /**
  * @description Random element from array
@@ -180,9 +185,10 @@ const randomElement = oneOfArray;
  * @param {string} [symbols="A-z alphabet"] Pool of letters\symbols\numbers
  * @returns {string} Random string
  */
-const randomString = (leng = 4, symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz')=>{
+const randomString = (leng = 4, symbols)=>{
+	if(!symbols)symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 	let result = '';
-	for(let k = 0; k < leng; k++)result = `${result}${symbols.charAt(Math.floor(Math.random() * symbols.length))}`;
+	while(result.length < leng)result += symbols.charAt(Math.floor(Math.random() * symbols.length));
 	return result;
 };
 
@@ -198,7 +204,7 @@ const randomDate = (min = 0, max = 2147481337)=>new Date(rand(min, max) * 1000);
 /**
  * @description Random date generator
  *
- * @param {value | array} [years] - The year or [years] (be parsed_Int)
+ * @param {value | array} [years] - The year or [years] (will be parseInt)
  * @returns {date} Random Date with specified year
  */
 const randomDateYear = (year = [2020])=>{
@@ -299,7 +305,7 @@ const randomArrayGen = (leng, obj = {string: true})=>{
 				break;
 			case 'bool':
 				if(huh === true)val = randBool();
-				else val = bool(huh);
+				else val = boolChance(huh);
 				break;
 		}
 		return val;
@@ -349,25 +355,28 @@ const randomCode = (len = 3)=>{
 //
 
 module.exports = {
-	/* numbers */
+	/* basic */
 	bool,
 	randBool,
 	rand,
-	randInt,
 	random,
+	randInt,
 	randFloat,
 	randBigFloat,
 
-	/* globals */
+	boolChance,
+
+	/* stuff */
 	padLeft,
 	dilute,
 	minMax,
 
-	/* index */
+	/* joy */
 	roll,
 	dice,
 	slot,
 
+	/* some */
 	oneOfArray,
 	randomElement,
 	oneOfObject,

@@ -127,16 +127,12 @@ const dice = (side = 6)=>{
 /**
  * @description Roll random number 1 to 100
  *
- * @param {boolean} [detailed=false] Detailed object output
- * @returns {number | object} number 1-100 | obj {result, text, pad, padSpace}
+ * @returns {object} obj {result, text, pad, padSpace}
  */
-const roll = (detailed = false)=>{
+const roll = ()=>{
 	const result = rand(1, 100);
-	if(detailed){
-		const padPad = padLeft(result, 3);
-		return {text: `rolls (1-100): ${b}`, result, pad: padPad, padSpace: dilute(padPad)};
-	}
-	return result;
+	const padPad = padLeft(result, 3);
+	return {result, text: `rolls (1-100): ${result}`, pad: padPad, padSpace: dilute(padPad)};
 };
 
 /**

@@ -43,7 +43,7 @@ console.log(roll()); // 13
 	- [.roll()](#roll)
 	- [.dice()](#dice)
 	- [.slot()](#slot)
-	- [.randomElement() = .oneOfArray()](#randomelement--oneofarray)
+	- [.randomArrElement() = .oneOfArray()](#randomarrelement--oneofarray)
 	- [.randomObjElement() = .oneOfObject()](#randomobjelement--oneofobject)
 	- [.randomObjValue() = .oneValueOfObject()](#randomobjvalue--onevalueofobject)
 	- [.randomString()](#randomstring)
@@ -370,14 +370,14 @@ rand.slot(1, 2, ['a', 'b', '🥰']); /* [[
 /
 -->
 
-#### .randomElement() = .oneOfArray()
+#### .randomArrElement() = .oneOfArray()
 
 Will return `value` element, from given **array**
 
 Syntax
 
 ```js
-rand.randomElement(array);
+rand.randomArrElement(array);
 ```
 
 | params  | description | type    | value     | default value | optional |
@@ -387,9 +387,9 @@ rand.randomElement(array);
 Examples
 
 ```js
-rand.randomElement([1, 2, 3, 4, 5]); // 1
-rand.randomElement([false, true]); // true
-rand.randomElement(['false', 'true']); // "false"
+rand.randomArrElement([1, 2, 3, 4, 5]); // 1
+rand.randomArrElement([false, true]); // true
+rand.randomArrElement(['false', 'true']); // "false"
 ```
 
 ---

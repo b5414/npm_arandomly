@@ -176,7 +176,7 @@ const oneOfArray = (arr)=>arr[rand(0, arr.length - 1)];
 /**
  * @alias oneOfArray
  */
-const randomElement = oneOfArray;
+const randomArrElement = oneOfArray;
 
 /**
  * @description Random string from A-Z & a-z letters
@@ -391,7 +391,7 @@ module.exports = {
 
 	/* js object */
 	oneOfArray,
-	randomElement,
+	randomArrElement,
 	oneOfObject,
 	randomObjElement,
 	oneValueOfObject,

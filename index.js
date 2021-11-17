@@ -30,7 +30,7 @@ const dilute = (value, glue = ' ')=>`${value}`.split('').join(`${glue}`);
 const minMax = (min, max)=>(min > max ? [max, min] : [min, max]);
 
 //
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
 //
 
 /**
@@ -61,7 +61,9 @@ const boolChance = (trueChance)=>{
 	return randBool();
 };
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+//
+//
 
 /**
  * @description Random number from MIN to MAX (both inclusive)
@@ -80,7 +82,9 @@ const rand = (min = 0, max = 100)=>{
  */
 const randInt = rand;
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+//
+//
 
 /**
  * @description Random number from MIN to MAX (both inclusive)
@@ -112,7 +116,7 @@ const randBigFloat = (min = 0, max = 100, decimal = 3)=>{
 };
 
 //
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
 //
 
 /**
@@ -162,7 +166,7 @@ const slot = (spins = 1, reels = 3, visual = false)=>{
 };
 
 //
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
 //
 
 /**
@@ -364,7 +368,7 @@ const randomSmsCode = (leng = 4, simple = true)=>{
 const randomCode = (len = 4)=>randomSmsCode(len, true);
 
 //
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
 //
 
 module.exports = {

@@ -333,22 +333,35 @@ const randomRace = (arr)=>oneOfArray(arr);
 /**
  * @description Random code generator (for sms)
  *
- * @param {number} [len=3] Length or code
+ * @param {number} [len=4] Length or code
+ * @param {bool} [simple=true] Its easy to type for a person
  */
-const randomCode = (len = 3)=>{
-	let arr = [];
-	for(let k = 0; k <= len; k++){
-		let b = 5;
-		if(randBool()){
-			const c = arr[arr.length - 1];
-			if(c)b = rand(c, oneOfArray([c - 1, c + 1, c - 2, c + 2]));
-			if(b > 9)b = b - 8;
-			if(b < 0)b = b + 9;
-		}else b = rand(1, 9);
-		arr.push(b);
+const randomSmsCode = (leng = 4, simple = true)=>{
+	const prefab = Array.from(String(rand(10 ** (leng - 1), 10 ** leng - 1)));
+	if(!simple)return prefab.join('');
+
+	const result = [];
+	for(let k = 0; k < leng; k++){
+		if(k === 0 || randBool()){
+			result.push(prefab[k]);
+			continue;
+		}
+
+		let a = +prefab[k - 1];
+		if(boolChance(25))a = oneOfArray(result);
+		result.push(a);
 	}
-	return arr;
+
+	return result.join('');
 };
+
+/**
+ * @alias randomSmsCode
+ * @description Alias with simple always true
+ *
+ * @param {number} [len=4] Length or code
+ */
+const randomCode = (len = 4)=>randomSmsCode(len, true);
 
 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -376,7 +389,7 @@ module.exports = {
 	dice,
 	slot,
 
-	/* some */
+	/* js object */
 	oneOfArray,
 	randomElement,
 	oneOfObject,
@@ -384,12 +397,14 @@ module.exports = {
 	oneValueOfObject,
 	randomObjValue,
 
+	/* etc */
 	randomCode,
+	randomSmsCode,
 	randomString,
+	randomArrayGen,
 	randomDate,
 	randomDateYear,
 	randomDateYears,
-	randomArrayGen,
 
 	randomRace,
 };

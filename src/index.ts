@@ -97,7 +97,7 @@ export const uniqDate = (unixMin: number = 0, unixMax: number = 2147481337)=>new
 
 export const uniqDateForOneYear = (year: number | number[] = new Date().getFullYear())=>{
 	const years = [...(typeof year !== 'number' ? year : [year])];
-	return new Date(uniqDate().setFullYear(oneOfArray(years))).toDateString();
+	return new Date(uniqDate().setFullYear(oneOfArray(years)));
 };
 
 export const uniqDateForYears = (year: number | number[] = new Date().getFullYear())=>{

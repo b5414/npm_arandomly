@@ -14,7 +14,7 @@ export declare const uniqString: (leng?: number, symbols?: string) => string;
 export declare const uniqUseragent: (minChromeVersion?: number, maxChromeVersion?: number) => string;
 export declare const uniqSmsCode: (leng?: number, smooth?: boolean) => string;
 export declare const uniqDate: (unixMin?: number, unixMax?: number) => Date;
-export declare const uniqDateForOneYear: (year?: number | number[]) => string;
+export declare const uniqDateForOneYear: (year?: number | number[]) => Date;
 export declare const uniqDateForYears: (year?: number | number[]) => Date[];
 export declare const uniqColorHex: (withAlpha?: boolean) => string;
 export declare const uniqColorRGB: (opacity?: number) => string;
@@ -48,7 +48,7 @@ declare const _default: {
     uniqUseragent: (minChromeVersion?: number, maxChromeVersion?: number) => string;
     uniqSmsCode: (leng?: number, smooth?: boolean) => string;
     uniqDate: (unixMin?: number, unixMax?: number) => Date;
-    uniqDateForOneYear: (year?: number | number[]) => string;
+    uniqDateForOneYear: (year?: number | number[]) => Date;
     uniqDateForYears: (year?: number | number[]) => Date[];
     uniqColorHex: (withAlpha?: boolean) => string;
     uniqColorRGB: (opacity?: number) => string;

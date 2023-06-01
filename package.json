@@ -1,6 +1,6 @@
 {
 	"name": "arandomly",
-	"version": "0.0.7",
+	"version": "1.0.0",
 	"description": "Random value generator module",
 	"main": "index.js",
 	"repository": {
